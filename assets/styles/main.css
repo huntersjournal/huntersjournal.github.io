@@ -215,12 +215,13 @@ footer a {
 /* BODY */
 
 body {
-	min-width: 1588px;
+	min-width: 1566px;
 }
 
 /* BACKGROUNDS */
 
 .home-background {
+	background-color: #040308;
 	background-size: auto 100%;
 	background-image: url("images/home-background.png");
 	background-repeat: no-repeat;
