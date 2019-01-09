@@ -82,6 +82,7 @@ footer a {
 	color: #ffffff;
 }
 
+.chevron,
 nav img {
 	position: absolute;
 	height: 20px;
@@ -187,6 +188,10 @@ footer {
 .nav-footer li {
 	margin-left: 50px;
 	display: inline-block;
+}
+
+footer a {
+	position: relative;
 }
 
 /* BACKGROUNDS */
