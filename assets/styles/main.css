@@ -4,6 +4,7 @@ Text: #ffffff
 Text on hover: #C0C0C0
 
 Header Gradient: #273359 to #040308
+(The above also make up the accent and base colors)
 
 */
 
@@ -51,7 +52,8 @@ p {
 
 /* LINKS */
 
-nav a:hover {
+nav a:hover,
+footer a:hover {
 	color: #C0C0C0;
 }
 
@@ -63,22 +65,23 @@ nav ul {
 	margin-bottom: 10px;
 }
 
-nav li,
 nav a {
-	color: #ffffff;
+	position: relative;
 }
 
-nav li {
-	display: block;
+nav li,
+nav a,
+footer a {
 	text-transform: uppercase;
 	font: 400 16px/24px "Roboto", Arial, Helvetica, sans-serif;
 	letter-spacing: 1px;
+	color: #ffffff;
 }
 
 nav img {
-	height: 20px;	
-	margin-right: 15px;
-	margin-bottom: 3px;
+	position: absolute;
+	height: 20px;
+	left: -20px;
 	vertical-align: bottom;
 }
 
@@ -102,7 +105,7 @@ nav img {
 	margin-right: 1.5%;
 	height: 445px;
 	
-	background: #040517;
+	background: #273359;
 }
 
 .home-col img {
@@ -169,6 +172,15 @@ header {
 
 footer {
 	background-color: #040308;
+}
+
+.nav-footer {
+	float: right;
+}
+
+.nav-footer li {
+	margin-left: 50px;
+	display: inline-block;
 }
 
 /* BACKGROUNDS */
