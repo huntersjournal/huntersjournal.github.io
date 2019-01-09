@@ -1,7 +1,7 @@
 /* COLORS:
 
 Text: #ffffff
-Text on hover: #C0C0C0
+Text on hover: #D0D0D0
 
 Header Gradient: #273359 to #040308
 (The above also make up the accent and base colors)
@@ -52,9 +52,13 @@ p {
 
 /* LINKS */
 
+a:hover {
+	cursor: pointer;
+}
+
 nav a:hover,
 footer a:hover {
-	color: #C0C0C0;
+	color: #D0D0D0;
 }
 
 /* NAVIGATION */
@@ -95,11 +99,12 @@ nav img {
 .home-col p, 
 .home-col h5 {
 	margin: 10px 20px 10px 20px;
+	color: #D0D0D0;
 }
 
 .home-col {
 	width: 22%;
-	border: 2px solid #ffffff;
+	border: 2px solid #D0D0D0;
 	border-radius: 10px;
 	margin-left: 1.5%;
 	margin-right: 1.5%;
@@ -114,12 +119,13 @@ nav img {
 }
 
 .home-col:hover {
-	border-color: #C0C0C0;
+	border-color: #ffffff;
+	background-color: #323869
 }
 
 .home-col:hover p,
 .home-col:hover h5 {
-	color: #C0C0C0;
+	color: #ffffff;
 }
 
 /* HEADER */
