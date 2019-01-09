@@ -207,6 +207,11 @@ footer a {
 	justify-content: space-between
 }
 
+/* BODY */
+
+body {
+	min-width: 1588px;
+}
 
 /* BACKGROUNDS */
 
