@@ -6,6 +6,8 @@ Text on hover: #D0D0D0
 Header Gradient: #273359 to #040308
 (The above also make up the accent and base colors)
 
+Footer Gradient: #111320 to #040308
+
 */
 
 /* CLEARFIX */
@@ -178,11 +180,15 @@ header {
 /* FOOTER */
 
 footer {
-	background-color: #040308;
+	background: radial-gradient(ellipse, #212340, #040308);
 }
 
 .nav-footer {
 	float: right;
+}
+
+footer ul {
+	margin: auto 0;
 }
 
 .nav-footer li {
