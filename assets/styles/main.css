@@ -1,7 +1,9 @@
 /* COLORS:
 
 Text: #ffffff
-Text on hover: #adadad
+Text on hover: #C0C0C0
+
+Header Gradient: #273359 to #040308
 
 */
 
@@ -50,7 +52,7 @@ p {
 /* LINKS */
 
 nav a:hover {
-	color: #adadad;
+	color: #C0C0C0;
 }
 
 /* NAVIGATION */
@@ -109,18 +111,18 @@ nav img {
 }
 
 .home-col:hover {
-	border-color: #adadad;
+	border-color: #C0C0C0;
 }
 
 .home-col:hover p,
 .home-col:hover h5 {
-	color: #adadad;
+	color: #C0C0C0;
 }
 
 /* HEADER */
 
 header {
-	background-image: radial-gradient(ellipse at top, #515193, #010145);
+	background-image: radial-gradient(ellipse at top, #273359, #040308);
 }
 
 .header-top {
@@ -161,4 +163,17 @@ header {
 	display: inline-block;
 	padding-left: 10px;
 	padding-right: 10px;
+}
+
+/* FOOTER */
+
+footer {
+	background-color: #040308;
+}
+
+/* BACKGROUNDS */
+
+.home-background {
+	background-size: cover;
+	background-image: url("images/home-background.png");
 }
