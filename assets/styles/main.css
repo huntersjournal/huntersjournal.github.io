@@ -200,9 +200,20 @@ footer a {
 	position: relative;
 }
 
+.flex-wrapper {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	justify-content: space-between
+}
+
+
 /* BACKGROUNDS */
 
 .home-background {
-	background-size: cover;
+	background-size: auto 100%;
 	background-image: url("images/home-background.png");
+	background-repeat: no-repeat;
+	background-position: fixed;
+	background-attachment: center bottom;
 }
