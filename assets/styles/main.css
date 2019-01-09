@@ -1,0 +1,142 @@
+
+/* CLEARFIX */
+
+.cf:before,
+.cf:after {
+	content: "";
+	display: table;
+}
+
+.cf:after {
+	clear: both;
+}
+
+.cf {
+	clear: both;
+	*zoom: 1;
+}
+
+/* CONTAINER */
+
+.container {
+	padding: 22px 44px 22px 44px;
+	margin: 0 auto;
+}
+
+
+/* LINKS */
+
+nav a {
+	text-decoration: none;
+}
+
+/* NAVIGATION */
+
+nav ul {
+	text-align: right;
+	vertical-align: bottom;
+	margin-bottom: 10px;
+}
+
+nav li,
+nav a {
+	color: #ffffff;
+}
+
+nav li {
+	display: block;
+	text-transform: uppercase;
+	font: 400 16px/24px "Roboto", Arial, Helvetica, sans-serif;
+	letter-spacing: 1px;
+}
+
+nav img {
+	height: 20px;	
+	margin-right: 15px;
+	margin-bottom: 3px;
+	vertical-align: bottom;
+}
+
+/* COLUMNS */
+
+.container {
+	margin: 0 auto;
+	width: 1500px;
+}
+
+.grid {
+	margin: 0 auto;
+}
+
+.col-1-4 {
+	vertical-align: top;
+	display: inline-block;
+}
+
+.home-col p, 
+.home-col h5 {
+	margin: 10px;
+}
+
+.home-col {
+	width: 22%;
+	border: 2px solid #000000;
+	border-radius: 10px;
+	margin-left: 1.5%;
+	margin-right: 1.5%;
+	height: 550px;
+}
+
+.home-col img {
+	box-sizing: content-box;
+	width: 100%;
+}
+
+/* HEADER */
+
+header {
+	background-image: radial-gradient(ellipse at top, #515193, #010145);
+}
+
+.header-top {
+	position: relative;
+}
+
+.header-top nav {
+	position: absolute;
+	bottom: 22px;
+	right: 0;
+}
+
+.logo {
+	position: absolute;
+	top: 22px;
+	left: 0;
+}
+
+.title,
+.logo {
+	height: 150px; /* This should match the width of the logo */
+	display: block;
+}	
+
+.title {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.subtitle {
+	font: 300 30px/40px "Noto Serif", Times, serif;
+	color: #ffffff;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.subtitle img,
+.subtitle h2 {
+	display: inline-block;
+	padding-left: 10px;
+	padding-right: 10px;
+}
