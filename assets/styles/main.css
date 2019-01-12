@@ -57,6 +57,51 @@ p {
 	margin: 0 auto;
 }
 
+.row {
+	background: #000;
+	
+	margin: 0 auto;
+	margin-top: 75px;
+}
+
+.row:last-of-type {
+	margin-bottom: 45px;
+}
+
+/* ROW */
+
+.row a {
+	position: relative;
+	
+	margin: 0 10px;
+	padding: 10px 20px;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	min-height: 120px;
+	vertical-align: middle;
+	float: left;
+}
+
+.row img {
+	margin-top: -56px;
+}
+
+.row a:hover img {
+	margin-top: -58px;
+}
+
+.row a p {
+	margin: auto;
+	
+	line-height: 20px;
+	text-align: center;
+	text-decoration: underline;
+	color: #D0D0D0;
+	font-size: 18px;
+	max-width: 102px;
+}
+
 /* LINKS */
 
 a:hover {
@@ -66,6 +111,25 @@ a:hover {
 nav a:hover,
 footer a:hover {
 	color: #D0D0D0;
+}
+
+.home-col,
+.row a {
+	border: 2px solid #D0D0D0;
+	background: #273359;
+	border-radius: 10px;
+}
+
+.home-col:hover,
+.row a:hover {
+	border-color: #ffffff;
+	background-color: #323869
+}
+
+.home-col:hover p,
+.home-col:hover h5,
+.row a:hover p {
+	color: #ffffff;
 }
 
 /* NAVIGATION */
@@ -112,26 +176,12 @@ nav img {
 
 .home-col {
 	width: 22%;
-	border: 2px solid #D0D0D0;
-	border-radius: 10px;
 	margin-left: 1.5%;
 	margin-right: 1.5%;
-	
-	background: #273359;
 }
 
 .home-col img {
 	width: 100%;
-}
-
-.home-col:hover {
-	border-color: #ffffff;
-	background-color: #323869
-}
-
-.home-col:hover p,
-.home-col:hover h5 {
-	color: #ffffff;
 }
 
 /* HEADER */
@@ -142,6 +192,8 @@ header {
 
 .header-top {
 	position: relative;
+	display: flex;
+	flex-direction: column;
 }
 
 .header-top nav {
@@ -180,6 +232,25 @@ header {
 	padding-right: 10px;
 }
 
+.header-top h1 {
+	font-size: 60px;
+	display: inline-block;
+	margin-left: 20px;
+}
+
+.header-top div {
+	background: linear-gradient(to right, rgba(200,200,200,0), rgba(200,200,200,.2) 20%, rgba(200,200,200,.2) 80%, rgba(200,200,200,0) 100%);
+	display: flex;
+	align-items: center;
+	padding: 10px 50px;
+}
+
+.title {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
 /* FOOTER */
 
 footer {
@@ -215,7 +286,21 @@ footer a {
 /* BODY */
 
 body {
+	background: #000;
 	min-width: 1566px;
+}
+
+/* Update Markers */
+
+.update-marker img:first-of-type {
+	position: absolute;
+	
+	left: -17px;
+	top: 40px;
+}
+
+.update-marker:hover img:first-of-type {
+	top: 42px;
 }
 
 /* BACKGROUNDS */
