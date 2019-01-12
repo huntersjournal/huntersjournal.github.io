@@ -58,8 +58,6 @@ p {
 }
 
 .row {
-	background: #000;
-	
 	margin: 0 auto;
 	margin-top: 75px;
 }
@@ -305,11 +303,27 @@ body {
 
 /* BACKGROUNDS */
 
+.home-background,
+.boss-background,
+.enemy-background {
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: 100% auto;
+}
+
 .home-background {
 	background-color: #040308;
-	background-size: auto 100%;
 	background-image: url("images/home-background.png");
-	background-repeat: no-repeat;
-	background-position: fixed;
-	background-attachment: center bottom;
+}
+
+.boss-background {
+	background-attachment: fixed;
+	background-color: #0A0307;
+	background-image: url("images/boss-background.png");
+}
+
+.enemy-background {
+	background-attachment: fixed;
+	background-color: #0A0307;
+	background-image: url("images/enemy-background.png");
 }
