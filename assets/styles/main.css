@@ -196,7 +196,7 @@ header {
 
 .header-top nav {
 	position: absolute;
-	bottom: 0;
+	bottom: 20px;
 	right: 44px;
 }
 
@@ -281,6 +281,37 @@ footer a {
 	justify-content: space-between
 }
 
+/* MOB LAYOUT */
+
+.mob {
+	max-width: 80vw;
+	min-width: 50vw;
+	margin: auto;
+	
+	background: #111;
+}
+
+.mob-info {
+	float: right;
+	
+	border: 2px solid #fff;
+	padding: 15px;
+}
+
+.mob-img-frame {
+	height: 150px;
+	width: 200px;
+	border: 2px solid #fff;
+	display: flex;
+	justify-content: center;
+	
+	margin-bottom: 10px;
+}
+
+.mob-img-frame img {
+	margin: auto;
+}
+
 /* BODY */
 
 body {
@@ -322,7 +353,8 @@ body {
 	background-image: url("images/bosses-background.png");
 }
 
-.enemy-background {
+.enemy-background,
+.crossroads-background { /* temporarily include crossroads */
 	background-color: #051B11;
 	background-image: url("images/enemies-background.png");
 }
