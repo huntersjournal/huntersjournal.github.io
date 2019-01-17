@@ -313,7 +313,7 @@ footer a {
 
 .mob {
 	max-width: 80vw;
-	min-width: 50vw;
+	min-width: 1000px;
 	margin: auto;
 	
 	background: #111;
@@ -324,11 +324,12 @@ footer a {
 	
 	border: 2px solid #fff;
 	padding: 15px;
+	width: 534px; /* mob-img-frame width + 2 * (padding + border) */
 }
 
 .mob-img-frame {
-	height: 150px;
-	width: 200px;
+	height: 500px;
+	width: 500px;
 	border: 2px solid #fff;
 	display: flex;
 	justify-content: center;
@@ -336,8 +337,11 @@ footer a {
 	margin-bottom: 10px;
 }
 
-.mob-img-frame img {
+.mob-info img {
 	margin: auto;
+	display:block;
+	max-height: 95%;
+	max-width: 95%;
 }
 
 /* BODY */
@@ -373,20 +377,20 @@ body {
 .home-background {
 	background-size: auto 100%;
 	background-attachment: scroll;
-	background-image: url("images/home-background.png");
+	background-image: url("../images/backgrounds/home-background.png");
 }
 
 .boss-background {
 	background-attachment: fixed;
-	background-image: url("images/bosses-background.png");
+	background-image: url("../images/backgrounds/bosses-background.png");
 }
 
 .enemy-background,
 .crossroads-background { /* temporarily include crossroads */
 	background-color: #051B11;
-	background-image: url("images/enemies-background.png");
+	background-image: url("../images/backgrounds/enemies-background.png");
 }
 
-.background-404 {
-	background-image: url("images/404-background.png");
+.background-404 { /* This one needs to be accessed from anywhere a 404 might appear, so it uses the root directory in the url */
+	background-image: url("/assets/images/backgrounds/404-background.png");
 }
