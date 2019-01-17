@@ -29,6 +29,13 @@ Text background: #181830
 	*zoom: 1;
 }
 
+.flex-wrapper {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	justify-content: space-between
+}
+
 /* FONTS */
 
 h1, h2, h3, h4, h5, h6{
@@ -46,7 +53,6 @@ p, li {
 
 .container {
 	padding: 18px 22px;
-	/* min-width: 1000px; 			NEED TO CHECK THE EFFECTS OF THIS ON DESKTOP!!! */
 }
 
 .grid {
@@ -306,13 +312,6 @@ footer a {
 	position: relative;
 }
 
-.flex-wrapper {
-	display: flex;
-	min-height: 100vh;
-	flex-direction: column;
-	justify-content: space-between
-}
-
 /* MOB LAYOUT */
 
 .mob {
@@ -331,6 +330,16 @@ footer a {
 	padding: 15px;
 	
 	background: #222;
+}
+
+.mob-desc {
+	margin-right: 549px; /* below width + above padding */
+}
+
+.bullet {
+	height: 18px;
+	vertical-align: middle;
+	padding-right: 5px;
 }
 
 .mob-info {
@@ -358,6 +367,10 @@ footer a {
 	display:block;
 	max-height: 95%;
 	max-width: 95%;
+}
+
+.mob-info p {
+	margin: 0 10px;
 }
 
 /* BODY */
