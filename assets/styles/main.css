@@ -31,12 +31,12 @@ Text background: #181830
 
 /* FONTS */
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6{
 	font: 300 30px/40px "Noto Serif", Times, serif;
 	color: #fff;
 }
 
-p {
+p, li {
 	font: 300 16px/24px "Noto Serif", Times, serif;
 	color: #fff;
 }
@@ -251,11 +251,14 @@ header {
 	align-items: center;
 }
 
+.subtitle h2 {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
 .subtitle img,
 .subtitle h2 {
 	display: inline-block;
-	padding-left: 10px;
-	padding-right: 10px;
 }
 
 .header-top div {
@@ -322,6 +325,7 @@ footer a {
 .mob-info {
 	float: right;
 	
+	margin-left: 20px;
 	border: 2px solid #fff;
 	padding: 15px;
 	width: 534px; /* mob-img-frame width + 2 * (padding + border) */
