@@ -52,6 +52,8 @@ p, li {
 /* CONTAINER */
 
 .container {
+	display: block;
+	margin: auto;
 	padding: 18px 22px;
 }
 
@@ -202,6 +204,21 @@ nav img {
 }
 
 /* COLUMNS */
+
+.col-1-5 {
+	width: 19%;
+	margin-left: 0.5%;
+	margin-right: 0.5%;
+	border: 2px solid #fff;
+	border-radius: 5px;
+	font: 300 16px/24px "Noto Serif", Times, serif;
+	color: #fff;
+	padding: 5px 0;
+	text-align: center;
+	
+	background-color: #111;
+	float: left;
+}
 
 .col-1-4 {
 	vertical-align: top;
@@ -370,7 +387,7 @@ footer a {
 	background-image: radial-gradient(#181830, #000);
 }
 
-.mob-info img {
+.mob-img-frame img {
 	margin: auto;
 	display:block;
 	max-height: 95%;
@@ -379,6 +396,18 @@ footer a {
 
 .mob-info p {
 	margin: 0 10px;
+}
+
+.col-1-5 img {
+	max-height: 18px;
+	max-width: 18px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+h3 {
+	text-align: center;
+	font-size: 18px;
 }
 
 /* BODY */
