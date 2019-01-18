@@ -120,7 +120,8 @@ p, li {
 	margin-top: -56px;
 }
 
-.row a:hover img {
+.row a:hover img,
+.row a:focus img {
 	margin-top: -58px;
 }
 
@@ -142,7 +143,9 @@ a:hover {
 }
 
 nav a:hover,
-footer a:hover {
+nav a:focus,
+footer a:hover,
+footer a:focus {
 	color: #D0D0D0;
 }
 
@@ -154,14 +157,19 @@ footer a:hover {
 }
 
 .home-col:hover,
-.row a:hover {
+.home-col:focus,
+.row a:hover,
+.row a:focus {
 	border-color: #ffffff;
 	background-color: #323869
 }
 
 .home-col:hover p,
+.home-col:focus p,
 .home-col:hover h5,
-.row a:hover p {
+.home-col:focus h5,
+.row a:hover p,
+.row a:focus p {
 	color: #ffffff;
 }
 
@@ -389,13 +397,14 @@ body {
 	top: 40px;
 }
 
-.update-marker:hover img:first-of-type {
+.update-marker:hover img:first-of-type,
+.update-marker:focus img:first-of-type {
 	top: 42px;
 }
 
 /* BACKGROUNDS */
 
-.background {
+[class*="background"] {
 	background-repeat: no-repeat;
 	background-position: center bottom;
 	background-size: 100% auto;
@@ -410,7 +419,6 @@ body {
 }
 
 .boss-background {
-	background-attachment: fixed;
 	background-image: url("../images/backgrounds/bosses-background.png");
 }
 
