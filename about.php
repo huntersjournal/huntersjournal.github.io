@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Gauntlets</title>
+		<title>About</title>
 		<link rel="shortcut icon" href="assets/images/general/favicon.ico" type="image-x/icon" />
 		<link rel="stylesheet" href="assets/styles/reset.css">
 		<link rel="stylesheet" href="assets/styles/main.css">
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	</head>
-
-  	<body class="flex-wrapper">
+  
+	<body class="flex-wrapper">
 		<section class="inventory">
 			<a class="close">Hello mortals.</a>
 		</section class="inventory">
@@ -18,28 +18,22 @@
 				<a href="index.html">
 					<img src="assets/images/general/hunters-mark.png" alt="Logo" class="logo">
 				</a>
-				<img src="assets/images/titles/gauntlets-title.png" alt="Gauntlets" class="title">
+				<img src="assets/images/titles/about-title.png" alt="About" class="title">
 				<nav>
 					<ul>
 						<li><a href="index.html">Home</a></li><!--
 						--><li><a href="bosses.html">Bosses</a></li><!--
 						--><li><a href="enemies.html">Enemies</a></li><!--
-						--><li><a href="gauntlets.html"><img src="assets/images/general/chevron.png" alt="">Gauntlets</a></li><!--
+						--><li><a href="gauntlets.html">Gauntlets</a></li><!--
 						--><li><a class="charms">Charms</a></li>
 					</ul>
 				</nav>
 			</section>
 			
-			<section class="subtitle">
-				<img src="assets/images/general/fleur-left.png" alt="">
-				<h2>A Guide to the Gauntlets of Hallownest</h2>
-				<img src="assets/images/general/fleur-right.png" alt="">
-			</section>
 		</header>
 		
-		<div class="background enemy-background">
+		<?php echo "hello my good sir"; ?>
 		
-		</div>
 		
 		<footer>
 			<section class="container cf">				
@@ -48,12 +42,12 @@
 						<li><a href="index.html">Home</a></li><!--
 						--><li><a href="bosses.html">Bosses</a></li><!--
 						--><li><a href="enemies.html">Enemies</a></li><!--
-						--><li><a href="gauntlets.html"><img src="assets/images/general/chevron.png" alt="">Gauntlets</a></li><!--
+						--><li><a href="gauntlets.html">Gauntlets</a></li><!--
 						--><li><a class="charms">Charms</a></li>
 					</ul>
 				</nav>
 				
-				<a href="about.html">About</a>
+				<a href="about.html"><img src="assets/images/general/chevron.png" class="chevron">About</a>
 			</section>
 		</footer>
 		

@@ -405,7 +405,7 @@ h3 {
 /* BODY */
 
 body {
-	background: #000;
+	background: #444;
 	min-width: 1330px;
 }
 
@@ -422,18 +422,29 @@ body {
 	top: 42px;
 }
 
+/* INVENTORY */
+
+.inventory {
+	display: none;
+	z-index: 100;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	
+	background: rgba(200,200,200,.5);
+}
+
 /* BACKGROUNDS */
 
 .background {
 	background-repeat: no-repeat;
 	background-position: center bottom;
-	background-size: 100% auto;
+	background-size: cover;
 	background-attachment: fixed;
 	background-color: #040308;
 }
 
 .home-background {
-	background-size: auto 100%;
 	background-attachment: scroll;
 	background-image: url("../images/backgrounds/home-background.png");
 }
