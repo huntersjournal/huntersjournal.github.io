@@ -211,13 +211,15 @@ nav img {
 	margin-right: 0.5%;
 	border: 2px solid #fff;
 	border-radius: 5px;
-	font: 300 16px/24px "Noto Serif", Times, serif;
-	color: #fff;
 	padding: 5px 0;
 	text-align: center;
 	
 	background-color: #111;
 	float: left;
+	
+	font: 400 16px/24px "Roboto", Arial, Helvetica, sans-serif;
+	letter-spacing: 0;
+	color: #fff;
 }
 
 .col-1-4 {
