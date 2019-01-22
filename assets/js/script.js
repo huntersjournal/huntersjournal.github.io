@@ -14,7 +14,7 @@ function reset(){
 }
 
 //Uncomment below to set values to default on loading the page.
-//reset();
+reset();
 
 var health = getHealth();
 var nail;
