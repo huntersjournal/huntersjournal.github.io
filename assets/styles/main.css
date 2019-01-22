@@ -1,7 +1,7 @@
 /* COLORS:
 
 Text: #ffffff
-Text on hover: #D0D0D0
+Text on hover: #DDD
 
 Header Gradient: #273359 to #040308
 (The above also make up the accent and base colors)
@@ -133,7 +133,7 @@ p, li {
 	line-height: 20px;
 	text-align: center;
 	text-decoration: underline;
-	color: #D0D0D0;
+	color: #DDD;
 	font-size: 18px;
 	max-width: 102px;
 }
@@ -148,12 +148,12 @@ nav a:hover,
 nav a:focus,
 footer a:hover,
 footer a:focus {
-	color: #D0D0D0;
+	color: #DDD;
 }
 
 .home-col,
 .row a {
-	border: 2px solid #D0D0D0;
+	border: 2px solid #DDD;
 	background: #181830;
 	border-radius: 10px;
 }
@@ -230,7 +230,7 @@ nav img {
 .home-col p, 
 .home-col h5 {
 	margin: 10px 20px 10px 20px;
-	color: #D0D0D0;
+	color: #DDD;
 }
 
 .home-col {
