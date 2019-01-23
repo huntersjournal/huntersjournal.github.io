@@ -5,16 +5,17 @@ if(localStorage.getItem("nail") == null){
 }
 
 function reset(){
-	localStorage.setItem("nail", "pure-nail");
+	localStorage.setItem("nail", "old-nail");
 	localStorage.setItem("charm-notches", "3");
 	localStorage.setItem("fireball", "vengeful-spirit");
 	localStorage.setItem("dive", "desolate-dive");
 	localStorage.setItem("scream", "howling-wraiths");
-	localStorage.setItem("charmlist", "strength,");
+	//stored as csv's, all charms MUST be followed by a comma!
+	localStorage.setItem("charmlist", "");
 }
 
 //Uncomment below to set values to default on loading the page.
-//reset();
+reset();
 
 var health = getHealth();
 var nail;
@@ -43,9 +44,21 @@ $('.inventory').on('click', function(event){
 	}
 });
 
+<<<<<<< HEAD
 function setChevron(gray){
 	
 }
+=======
+//Chanage current page marker
+$().hover(
+	function(){
+		
+	}, function(){
+		
+	}
+);
+
+>>>>>>> 4cd89023defa74899d695c7291d54929282641bb
 
 function getHealth(){
 	var str = $('.health').text();
@@ -57,61 +70,104 @@ function getHealth(){
 function updateDamage() {
 	updateNail();
 	updateFireball();
-	//updateDive();
-	//updateScream();
+	updateDive();
+	updateScream();
 	//NEED TO CONSIDER SHAMAN STONE!!!!!
+}
+
+function updateScream() {
+	var damage = 0;
+	
+	if(localStorage.getItem("scream") == "howling-wraiths"){
+		damage = 30;
+	}else{
+		damage = 80;
+	}
+	
+	if(hasCharm("shaman")){
+		damage *= 1.5;
+	}
+	
+	$('.scream').html(setUpTxt(localStorage.getItem("scream"), damage));
+}
+
+function updateDive() {
+	var damage = 0;
+	
+	if(localStorage.getItem("dive") == "desolate-dive"){
+		if(hasCharm("shaman")){
+			damage = 53;
+		}else{
+			damage = 35;
+		}
+	}else{
+		if(hasCharm("shaman")){
+			damage = 88;
+		}else{
+			damage = 60;
+		}
+	}
+	
+	$('.dive').html(setUpTxt(localStorage.getItem("dive"), damage));
 }
 
 function updateFireball() {
 	var damage = 0;
 
 	//get damage of current fireball selection
-	if(hasCharm("shaman")){
-		if(hasCharm("flukenest")){
-			if(hasCharm("crest")){
-				damage = 58;
-			}else{
-				if(localStorage.getItem("fireball") == "shade-soul"){
-					//Shaman, flukenest, shade
-					damage = 80;
-				}else{
-					//Shaman, flukenest, vengeful
-					damage = 45;
-				}
-			}
-		}else{
-			if(localStorage.getItem("fireball") == "shade-soul"){
-				//Shaman, shade
-				damage = 40;
-			}else{
-				//Shaman, vengeful
-				damage = 20;
-			}
-		}
+	var str = "";
+	if(localStorage.getItem("fireball") == "shade-soul"){
+		str = "shade";
 	}else{
-		if(hasCharm("flukenest")){
-			if(hasCharm("crest")){
-				damage = 44;
-			}else{
-				if(localStorage.getItem("fireball") == "shade-soul"){
-					//Flukenest, shade
-					damage = 64;
-				}else{
-					//Flukenest, vengeful
-					damage = 36;
-				}
-			}
-		}else{
-			if(localStorage.getItem("fireball") == "shade-soul"){
-				//No charms, shade
-				damage = 30;
-			}else{
-				//No charms, vengeful
-				damage = 15;
-			}
+		str = "vengeful";
+	}
+	if(hasCharm("shaman")){
+		str += "-shaman";
+	}
+	if(hasCharm("flukenest")){
+		str += "-fluke";
+		if(hasCharm("crest")){
+			str += "-crest";
 		}
 	}
-
+	
+	switch(str){
+		case "vengeful":
+			damage = 15;
+			break;
+		case "vengeful-shaman":
+			damage = 20;
+			break;
+		case "shade":
+			damage = 30;
+			break;
+		case "shade-shaman":
+			damage = 40;
+			break;
+		case "vengeful-fluke":
+			damage = 36;
+			break;
+		case "vengeful-shaman-fluke":
+			damage = 45;
+			break;
+		case "shade-fluke":
+			damage = 64;
+			break;
+		case "shade-shaman-fluke":
+			damage = 80;
+			break;
+		case "vengeful-fluke-crest":
+		case "shade-fluke-crest":
+			damage = 44;
+			break;
+		case "vengeful-shaman-fluke-crest":
+		case "sbade-shaman-fluke-crest":
+			damage = 58;
+			break;
+		default:
+			damage = 0;
+	}
+	
 	$('.fireball').html(setUpTxt(localStorage.getItem("fireball"), damage));
 }
 
