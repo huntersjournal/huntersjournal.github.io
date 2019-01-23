@@ -15,7 +15,7 @@ function reset(){
 }
 
 //Uncomment below to set values to default on loading the page.
-//reset();
+reset();
 
 var health = getHealth();
 var nail;
@@ -52,6 +52,8 @@ $('.inventory').on('click', function(event){
 		var str = classes.item(classes.length - 1);
 		localStorage.setItem("nail", str + "-nail");
 		updateDamage();
+	}else if(classes.contains("spell-img")){
+		toggleSpell($(event.target).parent());
 	}
 });
 
@@ -59,16 +61,52 @@ $('.inventory').on('click', function(event){
 $('.current-page').hover(
 	function(){
 		if(!grayChevron){
-			setChevron(true);
+			setChevron(true, this);
 			grayChevron = true;
 		}
 	}, function(){
 		if(grayChevron){
-			setChevron(false);
+			setChevron(false, this);
 			grayChevron = false;
 		}
 	}
 );
+
+$('.nail-img').hover(
+	function(){
+		var shortNail = nail.substring(0, nail.indexOf("-nail"));
+		if(!this.classList.contains(shortNail)){
+			$(this).parent().css({
+				backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 70%)'
+			});
+		}
+	}, function(){
+		var shortNail = nail.substring(0, nail.indexOf("-nail"));
+		if(!this.classList.contains(shortNail)){
+			$(this).parent().css({
+				backgroundImage: 'none'
+			});
+		}
+	}
+);
+
+function toggleSpell(target){
+	var classes = target.classList;
+	var str = $(target).html();
+	
+	if(classes.contains("fireball-img")){
+		//alert("fireball");
+		
+		if(localStorage.getItem("fireball") == "vengeful-spirit"){
+			localStorage.setItem("shade-soul");
+			$(target).html(str.replace("vengeful-spirit", "shade-soul"));
+		}else{
+			localStorage.setItem("vengeful-spirit");
+			$(target).html(str.replace("shade-soul", "vengeful-spirit"));
+		}
+		updateFireball();
+	}
+}
 
 function highlightNail(){
 	var shortNail = nail.substring(0, nail.indexOf("-nail"));
@@ -78,16 +116,16 @@ function highlightNail(){
 	});
 }
 
-function setChevron(gray){
-	var str = $('.current-page').html();
+function setChevron(gray, target){
+	var str = $(target).html();
 
 	if(gray){
-		str = str.substring(0, str.indexOf(".png")) + "-gray" + str.substring(str.indexOf(".png"), str.length);
+		str = str.replace("chevron", "chevron-gray");
 	}else{
-		str = str.substring(0, str.indexOf("-gray")) + str.substring(str.indexOf(".png"), str.length);
+		str = str.replace("-gray", "");
 	}
 
-	$('.current-page').html(str);
+	$(target).html(str);
 }
 
 function getHealth(){
