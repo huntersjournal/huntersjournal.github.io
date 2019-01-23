@@ -15,7 +15,7 @@ function reset(){
 }
 
 //Uncomment below to set values to default on loading the page.
-reset();
+//reset();
 
 var health = getHealth();
 var nail;
@@ -26,9 +26,11 @@ var white = "#fff";
 
 var grayChevron = false;
 
-updateDamage();
 
-highlightNail();
+setup();
+
+
+
 
 //Show/hide charms
 $('.charms').on('click', function(event){
@@ -53,7 +55,7 @@ $('.inventory').on('click', function(event){
 		localStorage.setItem("nail", str + "-nail");
 		updateDamage();
 	}else if(classes.contains("spell-img")){
-		toggleSpell($(event.target).parent());
+		toggleSpell(event.target);
 	}
 });
 
@@ -92,19 +94,35 @@ $('.nail-img').hover(
 
 function toggleSpell(target){
 	var classes = target.classList;
-	var str = $(target).html();
-	
+	var str = $(target).parent().html();
+
 	if(classes.contains("fireball-img")){
-		//alert("fireball");
-		
 		if(localStorage.getItem("fireball") == "vengeful-spirit"){
-			localStorage.setItem("shade-soul");
-			$(target).html(str.replace("vengeful-spirit", "shade-soul"));
+			localStorage.setItem("fireball", "shade-soul");
+			$(target).parent().html(str.replace("vengeful-spirit", "shade-soul"));
 		}else{
-			localStorage.setItem("vengeful-spirit");
-			$(target).html(str.replace("shade-soul", "vengeful-spirit"));
+			localStorage.setItem("fireball", "vengeful-spirit");
+			$(target).parent().html(str.replace("shade-soul", "vengeful-spirit"));
 		}
 		updateFireball();
+	}else if(classes.contains("dive-img")){
+		if(localStorage.getItem("dive") == "desolate-dive"){
+			localStorage.setItem("dive", "descending-dark");
+			$(target).parent().html(str.replace("desolate-dive", "descending-dark"));
+		}else{
+			localStorage.setItem("dive", "desolate-dive");
+			$(target).parent().html(str.replace("descending-dark", "desolate-dive"));
+		}
+		updateDive();
+	}else{
+		if(localStorage.getItem("scream") == "howling-wraiths"){
+			localStorage.setItem("scream", "abyss-shriek");
+			$(target).parent().html(str.replace("howling-wraiths", "abyss-shriek"));
+		}else{
+			localStorage.setItem("scream", "howling-wraiths");
+			$(target).parent().html(str.replace("abyss-shriek", "howling-wraiths"));
+		}
+		updateScream();
 	}
 }
 
@@ -114,6 +132,18 @@ function highlightNail(){
 	$('.' + shortNail).parent().css({
 		backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0) 70%)'
 	});
+}
+
+function correctSpells(){
+	if(localStorage.getItem("fireball") == "shade-soul"){
+		$('.fireball-img').parent().html($('.fireball-img').parent().html().replace("vengeful-spirit", "shade-soul"));
+	}
+	if(localStorage.getItem("dive") == "descending-dark"){
+		$('.dive-img').parent().html($('.dive-img').parent().html().replace("desolate-dive", "descending-dark"));
+	}
+	if(localStorage.getItem("scream") == "abyss-shriek"){
+		$('.scream-img').parent().html($('.scream-img').parent().html().replace("howling-wraiths", "abyss-shriek"));
+	}
 }
 
 function setChevron(gray, target){
@@ -133,6 +163,12 @@ function getHealth(){
 	str = str.substring(8, str.length);
 
 	return parseInt(str);
+}
+
+function setup(){
+	updateDamage();
+	highlightNail();
+	correctSpells();
 }
 
 function updateDamage() {
