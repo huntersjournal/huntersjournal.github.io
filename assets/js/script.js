@@ -43,6 +43,10 @@ $('.inventory').on('click', function(event){
 	}
 });
 
+function setChevron(gray){
+	
+}
+
 function getHealth(){
 	var str = $('.health').text();
 	str = str.substring(8, str.length);
