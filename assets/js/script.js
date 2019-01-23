@@ -15,7 +15,7 @@ function reset(){
 }
 
 //Uncomment below to set values to default on loading the page.
-reset();
+//reset();
 
 var health = getHealth();
 var nail;
@@ -23,6 +23,8 @@ var nailDamage;
 
 var red = "#DB4244";
 var white = "#fff";
+
+var grayChevron = false;
 
 updateDamage();
 
@@ -44,21 +46,32 @@ $('.inventory').on('click', function(event){
 	}
 });
 
-<<<<<<< HEAD
-function setChevron(gray){
-	
-}
-=======
 //Chanage current page marker
-$().hover(
+$('.current-page').hover(
 	function(){
-		
+		if(!grayChevron){
+			setChevron(true);
+			grayChevron = true;
+		}
 	}, function(){
-		
+		if(grayChevron){
+			setChevron(false);
+			grayChevron = false;
+		}
 	}
 );
 
->>>>>>> 4cd89023defa74899d695c7291d54929282641bb
+function setChevron(gray){
+	var str = $('.current-page').html();
+
+	if(gray){
+		str = str.substring(0, str.indexOf(".png")) + "-gray" + str.substring(str.indexOf(".png"), str.length);
+	}else{
+		str = str.substring(0, str.indexOf("-gray")) + str.substring(str.indexOf(".png"), str.length);
+	}
+
+	$('.current-page').html(str);
+}
 
 function getHealth(){
 	var str = $('.health').text();
@@ -77,23 +90,23 @@ function updateDamage() {
 
 function updateScream() {
 	var damage = 0;
-	
+
 	if(localStorage.getItem("scream") == "howling-wraiths"){
 		damage = 30;
 	}else{
 		damage = 80;
 	}
-	
+
 	if(hasCharm("shaman")){
 		damage *= 1.5;
 	}
-	
+
 	$('.scream').html(setUpTxt(localStorage.getItem("scream"), damage));
 }
 
 function updateDive() {
 	var damage = 0;
-	
+
 	if(localStorage.getItem("dive") == "desolate-dive"){
 		if(hasCharm("shaman")){
 			damage = 53;
@@ -107,7 +120,7 @@ function updateDive() {
 			damage = 60;
 		}
 	}
-	
+
 	$('.dive').html(setUpTxt(localStorage.getItem("dive"), damage));
 }
 
@@ -130,7 +143,7 @@ function updateFireball() {
 			str += "-crest";
 		}
 	}
-	
+
 	switch(str){
 		case "vengeful":
 			damage = 15;
@@ -167,7 +180,7 @@ function updateFireball() {
 		default:
 			damage = 0;
 	}
-	
+
 	$('.fireball').html(setUpTxt(localStorage.getItem("fireball"), damage));
 }
 
