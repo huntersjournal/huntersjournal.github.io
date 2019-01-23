@@ -28,18 +28,27 @@ var grayChevron = false;
 
 updateDamage();
 
+highlightNail();
+
 //Show/hide charms
 $('.charms').on('click', function(event){
 	$('.inventory').fadeIn('slow', function(event){});
 });
 
 $('.inventory').on('click', function(event){
-	//Checks if the element clicked was a section.
-	//This means that I cannot use any more sections for the charms display!
 	var classes = event.target.classList;
-	if(classes.contains("inventory")){
+	if(classes.contains("flex-center")){
 		$('.inventory').fadeOut('slow', function(event){});
 	}else if(classes.contains("nail-img")){
+
+		$('.nail-img').parent().css({
+			backgroundImage: 'none'
+		});
+
+		$(event.target).parent().css({
+			backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 70%)'
+		});
+
 		var str = classes.item(classes.length - 1);
 		localStorage.setItem("nail", str + "-nail");
 		updateDamage();
@@ -60,6 +69,14 @@ $('.current-page').hover(
 		}
 	}
 );
+
+function highlightNail(){
+	var shortNail = nail.substring(0, nail.indexOf("-nail"));
+
+	$('.' + shortNail).parent().css({
+		backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0) 70%)'
+	});
+}
 
 function setChevron(gray){
 	var str = $('.current-page').html();
