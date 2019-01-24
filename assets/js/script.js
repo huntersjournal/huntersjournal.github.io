@@ -65,10 +65,10 @@ $('.charm-row > div > img').on('click', function(event){
 	var charm = html.substring(html.indexOf("charms/") + 7, html.indexOf(".png"));
 
 	if(hasCharm(charm)){
-		$(event.target).parent().removeClass("show-glow");
+		$(event.target).parent().removeClass("select");
 		removeCharm(charm);
 	}else{
-		$(event.target).parent().addClass("show-glow");
+		$(event.target).parent().addClass("select");
 		addCharm(charm);
 	}
 
@@ -81,16 +81,13 @@ $('.charm-row > div > img').hover(
 		var html = $(event.target).parent().html();
 		var charm = html.substring(html.indexOf("charms/") + 7, html.indexOf(".png"));
 
-		if(!hasCharm(charm)){
-			$(this).parent().addClass("show-glow");
-		}
+		$(this).parent().addClass("hover");
+		
 	}, function(){
 		var html = $(event.target).parent().html();
 		var charm = html.substring(html.indexOf("charms/") + 7, html.indexOf(".png"));
 
-		if(!hasCharm(charm)){
-			$(this).parent().removeClass("show-glow");
-		}
+		$(this).parent().removeClass("hover");
 	}
 );
 
@@ -119,7 +116,7 @@ $('.nail-img').hover(
 			});
 		}
 		$(this).parent().css({
-			"bottom" : "1px"
+			"bottom" : "5px"
 		});
 	}, function(){
 		var shortNail = nail.substring(0, nail.indexOf("-nail"));
@@ -138,14 +135,13 @@ $('.spell-img').hover(
 	function(){
 		$(this).parent().css({
 			"background-image" : glow,
-			"bottom" : "1px"
+			"bottom" : "5px"
 		});
 	}, function(){
 		$(this).parent().css({
 			"background-image" : "none",
 			"bottom" : "0"
 		});
-		console.log($(this).parent());
 	}
 );
 
@@ -205,7 +201,7 @@ function highlightCharms(){
 }
 
 function highlightCharm(charm){
-	$('#' + charm).addClass("show-glow");
+	$('#' + charm).addClass("select");
 }
 
 function highlightNail(){

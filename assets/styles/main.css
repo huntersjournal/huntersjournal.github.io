@@ -465,6 +465,9 @@ h3 {
 	display: inline-block;
 	padding: 5px 10px;
 	position: relative;
+	bottom: 0;
+	
+	transition: 0.3s;
 }
 
 .spell-selection,
@@ -505,15 +508,27 @@ h3 {
 	content: "";
 
 	position: absolute;
+	
 	left: -7.5px; /* -(height - charm-row div height)/2 */
+	bottom: -7.5px;
 
 	height: 100px;
 	width: 100px;
 	z-index: 0;
+	
+	transition: 0.3s;
+	opacity: 0;
+	
+	background-image: radial-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0) 72%);
 }
 
-.charm-row div.show-glow::before {
-	background-image: radial-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0) 72%);
+.charm-row div.hover::before {
+	opacity: 1;
+	bottom: 0;
+}
+
+.charm-row div.select::before {
+	opacity: 1;
 }
 
 .charm-row img {
@@ -522,6 +537,9 @@ h3 {
 	height: 75px;
 	position: relative;
 	padding-bottom: 0;
+	
+	transition: 0.3s;
+	bottom: 0;
 }
 
 .charm-row img:hover {
@@ -529,7 +547,7 @@ h3 {
 	padding-bottom: 1px;
 	height: 76px;
 	*/
-	bottom: 1px;
+	bottom: 5px;
 	cursor: pointer;
 }
 
