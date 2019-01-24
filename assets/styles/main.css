@@ -59,7 +59,7 @@ p, li {
 }
 
 .centered {
-	background-color: rgba(50, 50, 50, .9);
+	background-color: rgba(10, 10, 10, .9);
 
 	padding: 25px;
 	border-radius: 25px;
@@ -432,6 +432,7 @@ h3 {
 	font: 400 16px/24px "Roboto", Arial, Helvetica, sans-serif;
 	letter-spacing: 0;
 	color: #fff;
+	cursor: default;
 }
 
 /* CHARMS */
@@ -465,9 +466,8 @@ h3 {
 	position: relative;
 }
 
-.nail-selection div:hover,
 .spell-selection div:hover {
-	background-image: radial-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0) 70%);
+	background-image: radial-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 70%);
 	bottom: 1px;
 }
 
@@ -477,8 +477,59 @@ h3 {
 	vertical-align: middle;
 }
 
-.spell-selection{
+.spell-selection {
 	margin-left: 50px;
+}
+
+.charm-row:last-child {
+	position: relative;
+	bottom: 20px;
+}
+
+.charm-row:nth-last-child(2) {
+	position: relative;
+	bottom: 10px;
+	left: 42.5px; /* half of div width */
+}
+
+.charm-row div {
+	/* for testing glow */
+	height: 85px;
+	width: 85px;
+
+	float: left;
+
+	display: flex;
+	align-items: center;
+
+	position: relative;
+}
+
+.charm-row div::before {
+	content: "";
+
+	position: absolute;
+	left: -7.5px; /* -(height - charm-row div height)/2 */
+
+	height: 100px;
+	width: 100px;
+	z-index: 0;
+}
+
+.charm-row div.show-glow::before {
+	background-image: radial-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0) 72%);
+}
+
+.charm-row img {
+	margin: auto;
+
+	height: 75px;
+	position: relative;
+}
+
+.charm-row img:hover {
+	bottom: 1px;
+	cursor: pointer;
 }
 
 /* BODY */
