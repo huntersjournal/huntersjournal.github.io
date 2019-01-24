@@ -115,16 +115,37 @@ $('.nail-img').hover(
 		var shortNail = nail.substring(0, nail.indexOf("-nail"));
 		if(!this.classList.contains(shortNail)){
 			$(this).parent().css({
-				backgroundImage: glow
+				"background-image" : glow
 			});
 		}
+		$(this).parent().css({
+			"bottom" : "1px"
+		});
 	}, function(){
 		var shortNail = nail.substring(0, nail.indexOf("-nail"));
 		if(!this.classList.contains(shortNail)){
 			$(this).parent().css({
-				backgroundImage: 'none'
+				"background-image" : "none"
 			});
 		}
+		$(this).parent().css({
+			"bottom" : "0"
+		});
+	}
+);
+
+$('.spell-img').hover(
+	function(){
+		$(this).parent().css({
+			"background-image" : glow,
+			"bottom" : "1px"
+		});
+	}, function(){
+		$(this).parent().css({
+			"background-image" : "none",
+			"bottom" : "0"
+		});
+		console.log($(this).parent());
 	}
 );
 
@@ -139,6 +160,8 @@ function removeCharm(charm){
 function toggleSpell(target){
 	var classes = target.classList;
 	var str = $(target).parent().html();
+
+	console.log($(target).parent());
 
 	if(classes.contains("fireball-img")){
 		if(localStorage.getItem("fireball") == "vengeful-spirit"){
