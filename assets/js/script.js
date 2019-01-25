@@ -44,13 +44,9 @@ $('.inventory').on('click', function(event){
 		$('.inventory').fadeOut('slow', function(event){});
 	}else if(classes.contains("nail-img")){
 
-		$('.nail-img').parent().css({
-			backgroundImage: 'none'
-		});
+		$('.nail-img').parent().removeClass("select");
 
-		$(event.target).parent().css({
-			backgroundImage: glow
-		});
+		$(event.target).parent().addClass("select");
 
 		var str = classes.item(classes.length - 1);
 		localStorage.setItem("nail", str + "-nail");
@@ -78,16 +74,32 @@ $('.charm-row > div > img').on('click', function(event){
 //Hover over charm
 $('.charm-row > div > img').hover(
 	function(){
-		var html = $(event.target).parent().html();
-		var charm = html.substring(html.indexOf("charms/") + 7, html.indexOf(".png"));
-
 		$(this).parent().addClass("hover");
-		
 	}, function(){
-		var html = $(event.target).parent().html();
-		var charm = html.substring(html.indexOf("charms/") + 7, html.indexOf(".png"));
-
 		$(this).parent().removeClass("hover");
+	}
+);
+
+//Hover over nail
+$('.nail-img').hover(
+	function(){
+		$(this).parent().addClass("hover");
+	}, function(){
+		$(this).parent().removeClass("hover");
+	}
+);
+
+$('.spell-img').hover(
+	function(){
+		$(this).parent().css({
+			"background-image" : glow,
+			"bottom" : "5px"
+		});
+	}, function(){
+		$(this).parent().css({
+			"background-image" : "none",
+			"bottom" : "0"
+		});
 	}
 );
 
@@ -103,45 +115,6 @@ $('.current-page').hover(
 			setChevron(false, this);
 			grayChevron = false;
 		}
-	}
-);
-
-//Hover over nail
-$('.nail-img').hover(
-	function(){
-		var shortNail = nail.substring(0, nail.indexOf("-nail"));
-		if(!this.classList.contains(shortNail)){
-			$(this).parent().css({
-				"background-image" : glow
-			});
-		}
-		$(this).parent().css({
-			"bottom" : "5px"
-		});
-	}, function(){
-		var shortNail = nail.substring(0, nail.indexOf("-nail"));
-		if(!this.classList.contains(shortNail)){
-			$(this).parent().css({
-				"background-image" : "none"
-			});
-		}
-		$(this).parent().css({
-			"bottom" : "0"
-		});
-	}
-);
-
-$('.spell-img').hover(
-	function(){
-		$(this).parent().css({
-			"background-image" : glow,
-			"bottom" : "5px"
-		});
-	}, function(){
-		$(this).parent().css({
-			"background-image" : "none",
-			"bottom" : "0"
-		});
 	}
 );
 
@@ -207,9 +180,7 @@ function highlightCharm(charm){
 function highlightNail(){
 	var shortNail = nail.substring(0, nail.indexOf("-nail"));
 
-	$('.' + shortNail).parent().css({
-		backgroundImage: glow
-	});
+	$('.' + shortNail).parent().addClass("select");
 }
 
 function correctSpells(){
