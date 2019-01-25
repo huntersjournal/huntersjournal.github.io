@@ -18,7 +18,7 @@ function reset(){
 //reset();
 
 //Uncomment below to show charms on loading the page
-//$('.inventory').fadeIn('slow', function(event){});
+$('.inventory').fadeIn('slow', function(event){});
 
 var health = getHealth();
 var nail;
@@ -33,7 +33,8 @@ var glow = "radial-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 70%
 
 setup();
 
-//Show/hide charms
+// ON CLICK //
+
 $('.charms').on('click', function(event){
 	$('.inventory').fadeIn('slow', function(event){});
 });
@@ -71,7 +72,8 @@ $('.charm-row > div > img').on('click', function(event){
 	calculateDamage();
 });
 
-//Hover over charm
+// ON HOVER //
+
 $('.charm-row > div > img').hover(
 	function(){
 		$(this).parent().addClass("hover");
@@ -97,7 +99,6 @@ $('.spell-img').hover(
 	}
 );
 
-//Chanage current page marker
 $('.current-page').hover(
 	function(){
 		if(!grayChevron){
@@ -112,6 +113,8 @@ $('.current-page').hover(
 	}
 );
 
+// FUNCTIONS //
+
 function addCharm(charm){
 	localStorage.setItem("charmlist", localStorage.getItem("charmlist") + charm + ",");
 }
@@ -124,34 +127,31 @@ function toggleSpell(target){
 	var classes = target.classList;
 	var str = $(target).parent().html();
 
-	console.log($(target).parent());
+	$(target).hide();
 
-	if(classes.contains("fireball-img")){
-		if(localStorage.getItem("fireball") == "vengeful-spirit"){
-			localStorage.setItem("fireball", "shade-soul");
-			$(target).parent().html(str.replace("vengeful-spirit", "shade-soul").replace("Vengeful Spirit", "Shade Soul"));
-		}else{
-			localStorage.setItem("fireball", "vengeful-spirit");
-			$(target).parent().html(str.replace("shade-soul", "vengeful-spirit").replace("Shade Soul", "Vengeful Spirit"));
-		}
+	if(classes.contains("vengeful-spirit")){
+		$('.shade-soul').show();
+		localStorage.setItem("fireball", "shade-soul");
 		updateFireball();
-	}else if(classes.contains("dive-img")){
-		if(localStorage.getItem("dive") == "desolate-dive"){
-			localStorage.setItem("dive", "descending-dark");
-			$(target).parent().html(str.replace("desolate-dive", "descending-dark").replace("Desolate Dive", "Descending Dark"));
-		}else{
-			localStorage.setItem("dive", "desolate-dive");
-			$(target).parent().html(str.replace("descending-dark", "desolate-dive").replace("Descending Dark", "Desolate Dive"));
-		}
+	}else if(classes.contains("shade-soul")){
+		$('.vengeful-spirit').show();
+		localStorage.setItem("fireball", "vengeful-spirit");
+		updateFireball();
+	}else if(classes.contains("desolate-dive")){
+		$('.descending-dark').show();
+		localStorage.setItem("dive", "descending-dark");
 		updateDive();
-	}else{
-		if(localStorage.getItem("scream") == "howling-wraiths"){
-			localStorage.setItem("scream", "abyss-shriek");
-			$(target).parent().html(str.replace("howling-wraiths", "abyss-shriek").replace("Howling Wraiths", "Abyss Shriek"));
-		}else{
-			localStorage.setItem("scream", "howling-wraiths");
-			$(target).parent().html(str.replace("abyss-shriek", "howling-wraiths").replace("Abyss Shriek", "Howling Wraiths"));
-		}
+	}else if(classes.contains("descending-dark")){
+		$('.desolate-dive').show();
+		localStorage.setItem("dive", "desolate-dive");
+		updateDive();
+	}else if(classes.contains("howling-wraiths")){
+		$('.abyss-shriek').show();
+		localStorage.setItem("scream", "abyss-shriek");
+		updateScream();
+	}else if(classes.contains("abyss-shriek")){
+		$('.howling-wraiths').show();
+		localStorage.setItem("scream", "howling-wraiths");
 		updateScream();
 	}
 }
@@ -179,13 +179,19 @@ function highlightNail(){
 
 function correctSpells(){
 	if(localStorage.getItem("fireball") == "shade-soul"){
-		$('.fireball-img').parent().html($('.fireball-img').parent().html().replace("vengeful-spirit", "shade-soul").replace("Vengeful Spirit", "Shade Soul"));
+		$('.vengeful-spirit').hide();
+	}else{
+		$('.shade-soul').hide();
 	}
 	if(localStorage.getItem("dive") == "descending-dark"){
-		$('.dive-img').parent().html($('.dive-img').parent().html().replace("desolate-dive", "descending-dark").replace("Desolate Dive", "Descending Dark"));
+		$('.desolate-dive').hide();
+	}else{
+		$('.descending-dark').hide();
 	}
 	if(localStorage.getItem("scream") == "abyss-shriek"){
-		$('.scream-img').parent().html($('.scream-img').parent().html().replace("howling-wraiths", "abyss-shriek").replace("Howling Wraiths", "Abyss Shriek"));
+		$('.howling-wraiths').hide();
+	}else{
+		$('.abyss-shriek').hide();
 	}
 }
 
