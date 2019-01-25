@@ -91,15 +91,9 @@ $('.nail-img').hover(
 
 $('.spell-img').hover(
 	function(){
-		$(this).parent().css({
-			"background-image" : glow,
-			"bottom" : "5px"
-		});
+		$(this).parent().addClass("hover");
 	}, function(){
-		$(this).parent().css({
-			"background-image" : "none",
-			"bottom" : "0"
-		});
+		$(this).parent().removeClass("hover");
 	}
 );
 

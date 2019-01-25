@@ -450,7 +450,8 @@ h3 {
 	bottom: 0;
 }
 
-.nail-selection img:hover {
+.nail-selection img:hover,
+.spell-selection img:hover {
 	bottom: 5px;
 }
 
@@ -506,7 +507,9 @@ h3 {
 }
 
 .nail-selection div.select::before,
-.nail-selection div.hover::before {
+.nail-selection div.hover::before,
+.spell-selection div.select::before,
+.spell-selection div.hover::before {
 	opacity: 1;
 }
 
