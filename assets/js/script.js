@@ -18,7 +18,7 @@ function reset(){
 //reset();
 
 //Uncomment below to show charms on loading the page
-$('.inventory').fadeIn('slow', function(event){});
+//$('.inventory').fadeIn('slow', function(event){});
 
 var health = getHealth();
 var nail;
