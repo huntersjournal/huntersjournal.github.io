@@ -409,11 +409,12 @@ footer a {
 	background-image: radial-gradient(#181830, #000);
 }
 
-.mob-img-frame img {
+.mob-img-frame img {	
 	margin: auto;
-	display:block;
-	max-height: 95%;
+	display: block;
+	
 	max-width: 95%;
+	max-height: 95%;
 }
 
 .mob-info p {
