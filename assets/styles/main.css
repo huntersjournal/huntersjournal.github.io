@@ -409,10 +409,10 @@ footer a {
 	background-image: radial-gradient(#181830, #000);
 }
 
-.mob-img-frame img {	
+.mob-img-frame img {
 	margin: auto;
 	display: block;
-	
+
 	max-width: 95%;
 	max-height: 95%;
 }
@@ -450,22 +450,20 @@ h3 {
 
 	/* HOVER/SELECT */
 
-.nail-selection img:hover,
 .charm-row img:hover,
-.spell-selection div.hover,
-.nail-selection div.hover::before {
-	bottom: 5px;
+.spell-selection div.hover::before,
+.spell-selection .hover img,
+.nail-selection div.hover::before,
+.nail-selection .hover img {
+	top: calc(50% - 5px);
 }
 
 .charm-row div.hover::before {
 	bottom: 0;
 }
 
-.nail-selection div.select::before,
-.nail-selection div.hover::before,
-.spell-selection div.hover::before,
-.charm-row div.select::before,
-.charm-row div.hover::before {
+div.select::before,
+div.hover::before {
 	opacity: 1;
 }
 
@@ -475,9 +473,7 @@ h3 {
 
 	/* BEFORE */
 
-.nail-selection div::before,
-.spell-selection div::before,
-.charm-row div::before {
+div::before {
 	content: "";
 	position: absolute;
 	z-index: 0;
@@ -487,18 +483,23 @@ h3 {
 	background-image: radial-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0) 72%);
 }
 
+.nail-selection div.detection,
+.nail-selection img,
+.nail-selection div::before,
+.spell-selection div.detection,
+.spell-selection img,
 .spell-selection div::before {
-	bottom: -6px;
-	right: -3px;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+}
 
+.spell-selection div::before {
 	height: 70px;
 	width: 75px;
 }
 
 .nail-selection div::before {
-	bottom: 0;
-	right: 2px;
-
 	height: 120px;
 	width: 40px;
 }
@@ -511,49 +512,48 @@ h3 {
 	width: 100px;
 }
 
-	/* OTHER CHARMS */
+	/* NAIL AND SPELL IMAGES */
 
-.nail-selection img {
-	height: 100px;
-	cursor: pointer;
-
-	position: relative;
-
-	transition: 0.3s;
-
-	bottom: 0;
-}
-
+.nail-selection div.detection,
+.nail-selection img,
+.spell-selection div.detection,
 .spell-selection img {
-	max-height: 50px;
-	max-width: 50px;
 	cursor: pointer;
 	position: absolute;
 
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-
-	margin: auto;
+	transition: 0.3s;
 }
 
-.spell-selection div {
+.nail-selection div.detection,
+.nail-selection img {
+	height: 100px;
+}
+
+.spell-selection div.detection,
+.spell-selection img {
+	max-height: 50px;
+	max-width: 50px;
+}
+
+	/* NAIL AND SPELL SPACING */
+
+.nail-selection div:not(.detection) {
+	width: 50px;
+	height: 100px;
+}
+
+.spell-selection div:not(.detection) {
 	height: 60px;
 	width: 70px;
 
 	transition: 0.3s;
-
-	position: relative;
-	bottom: 0;
 }
 
-.nail-selection div,
-.spell-selection div {
+.nail-selection div:not(.detection),
+.spell-selection div:not(.detection) {
 	display: inline-block;
 	padding: 5px 10px;
 	position: relative;
-	bottom: 0;
 }
 
 .spell-selection,
@@ -566,6 +566,8 @@ h3 {
 	margin-left: 50px;
 	position: relative;
 }
+
+	/* CHARMS ROWS */
 
 .charm-row:last-child {
 	position: relative;
