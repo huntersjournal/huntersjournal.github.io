@@ -6,7 +6,7 @@ if(localStorage.getItem("nail") == null){
 
 function reset(){
 	localStorage.setItem("nail", "old-nail");
-	localStorage.setItem("charm-notches", "3");
+	localStorage.setItem("charm-notches", "0");
 	localStorage.setItem("fireball", "vengeful-spirit");
 	localStorage.setItem("dive", "desolate-dive");
 	localStorage.setItem("scream", "howling-wraiths");
@@ -15,7 +15,7 @@ function reset(){
 }
 
 //Uncomment below to set values to default on loading the page.
-//reset();
+reset();
 
 //Uncomment below to show charms on loading the page
 $('.inventory').fadeIn('slow', function(event){});
@@ -30,6 +30,50 @@ var white = "#fff";
 var grayChevron = false;
 
 var glow = "radial-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 70%)";
+
+var charms = [
+	{name:"wayward-compass", notches:1},
+	{name:"gathering-swarm", notches:1},
+	{name:"stalwart-shell", notches:2},
+	{name:"soul-catcher", notches:2},
+	{name:"shaman-stone", notches:3},
+	{name:"soul-eater", notches:4},
+	{name:"dashmaster", notches:2},
+	{name:"thorns-of-agony", notches:1},
+	{name:"fury-of-the-fallen", notches:2},
+	{name:"unbreakable-heart", notches:2},
+	{name:"unbreakable-greed", notches:2},
+	{name:"unbreakable-strength", notches:3},
+	{name:"spell-twister", notches:2},
+	{name:"steady-body", notches:1},
+	{name:"heavy-blow", notches:2},
+	{name:"quick-slash", notches:3},
+	{name:"longnail", notches:2},
+	{name:"mark-of-pride", notches:3},
+	{name:"baldur-shell", notches:2},
+	{name:"flukenest", notches:3},
+	{name:"defenders-crest", notches:1},
+	{name:"glowing-womb", notches:2},
+	{name:"quick-focus", notches:3},
+	{name:"deep-focus", notches:4},
+	{name:"lifeblood-heart", notches:2},
+	{name:"lifeblood-core", notches:3},
+	{name:"jonis-blessing", notches:4},
+	{name:"grubsong", notches:1},
+	{name:"grubberflys-elegy", notches:3},
+	{name:"hiveblood", notches:4},
+	{name:"spore-shroom", notches:1},
+	{name:"sharp-shadow", notches:2},
+	{name:"shape-of-unn", notches:2},
+	{name:"nailmasters-glory", notches:1},
+	{name:"dream-wielder", notches:1},
+	{name:"kingsoul", notches:5},
+	{name:"dreamshield", notches:3},
+	{name:"weaversong", notches:2},
+	{name:"sprintmaster", notches:1},
+	{name:"carefree-melody", notches:3},
+	{name:"grimmchild", notches:2}
+];
 
 setup();
 
@@ -72,18 +116,16 @@ $('.charm-row > div > div').on('click', function(event){
 		$(event.target).parent().removeClass("select");
 		removeCharm(charm);
 	}else{
-		$(event.target).parent().addClass("select");
-		addCharm(charm);
+		equipCharm(charm);
 	}
 
-	calculateDamage();
+	updateDamage();
 });
 
 // ON HOVER //
 
 $('.detection').hover(
 	function(){
-		console.log($(this));
 		$(this).parent().addClass("hover");
 	}, function(){
 		$(this).parent().removeClass("hover");
@@ -107,14 +149,6 @@ $('.current-page').hover(
 
 // FUNCTIONS //
 
-function addCharm(charm){
-	localStorage.setItem("charmlist", localStorage.getItem("charmlist") + charm + ",");
-}
-
-function removeCharm(charm){
-	localStorage.setItem("charmlist", localStorage.getItem("charmlist").replace(charm + ",", ""));
-}
-
 function toggleSpell(target){
 	var classes = target.classList;
 
@@ -124,11 +158,15 @@ function toggleSpell(target){
 
 			$('.vengeful-spirit').hide();
 			$('.shade-soul').show();
+
+			$(target).prop("title", "Shade Soul");
 		}else{
 			localStorage.setItem("fireball", "vengeful-spirit");
 
 			$('.shade-soul').hide();
 			$('.vengeful-spirit').show();
+
+			$(target).prop("title", "Vengeful Spirit");
 		}
 		updateFireball();
 	}else if(classes.contains("dive-img")){
@@ -137,11 +175,15 @@ function toggleSpell(target){
 
 			$('.desolate-dive').hide();
 			$('.descending-dark').show();
+
+			$(target).prop("title", "Descending Dark");
 		}else{
 			localStorage.setItem("dive", "desolate-dive");
 
 			$('.descending-dark').hide();
 			$('.desolate-dive').show();
+
+			$(target).prop("title", "Desolate Dive");
 		}
 		updateDive();
 	}else{
@@ -150,14 +192,52 @@ function toggleSpell(target){
 
 			$('.howling-wraiths').hide();
 			$('.abyss-shriek').show();
+
+			$(target).prop("title", "Abyss Shriek");
 		}else{
 			localStorage.setItem("scream", "howling-wraiths");
 
 			$('.abyss-shriek').hide();
 			$('.howling-wraiths').show();
+
+			$(target).prop("title", "Howling Wraiths");
 		}
 		updateScream();
 	}
+}
+
+function equipCharm(charm) {
+	//if has < 11 charm notches unused, the equip charm
+	var notches = parseInt(localStorage.getItem("charm-notches"));
+
+	if(notches < 11){
+		notches += getNotches(charm);
+
+		localStorage.setItem("charm-notches", notches);
+
+		$(event.target).parent().addClass("select");
+		localStorage.setItem("charmlist", localStorage.getItem("charmlist") + charm + ",");
+
+		updateNotches();
+	}
+}
+
+function removeCharm(charm){
+	localStorage.setItem("charm-notches", parseInt(localStorage.getItem("charm-notches")) - getNotches(charm));
+
+	localStorage.setItem("charmlist", localStorage.getItem("charmlist").replace(charm + ",", ""));
+
+	updateNotches();
+}
+
+function getNotches(charm){
+	var notches = 0;
+	charms.forEach(function(element) {
+		if(element.name === charm){
+			notches = element.notches;
+		}
+	});
+	return notches;
 }
 
 function highlightCharms(){
@@ -184,16 +264,19 @@ function highlightNail(){
 function correctSpells(){
 	if(localStorage.getItem("fireball") == "shade-soul"){
 		$('.vengeful-spirit').hide();
+		$('.fireball-img').prop("title", "Shade Soul");
 	}else{
 		$('.shade-soul').hide();
 	}
 	if(localStorage.getItem("dive") == "descending-dark"){
 		$('.desolate-dive').hide();
+		$('.dive-img').prop("title", "Descending Dark");
 	}else{
 		$('.descending-dark').hide();
 	}
 	if(localStorage.getItem("scream") == "abyss-shriek"){
 		$('.howling-wraiths').hide();
+		$('.scream-img').prop("title", "Abyss Shriek");
 	}else{
 		$('.abyss-shriek').hide();
 	}
@@ -223,8 +306,7 @@ function setup(){
 	highlightNail();
 	correctSpells();
 	highlightCharms();
-
-	$();
+	updateNotches();
 }
 
 function updateDamage() {
@@ -380,6 +462,29 @@ function updateNail() {
 	damage = Math.ceil(damage);
 
 	$('.nail-art').html(setUpTxt("great-slash", damage));
+}
+
+function updateNotches(){
+	var i = parseInt(localStorage.getItem("charm-notches"));
+
+	console.log(i);
+
+	if(i > 11){
+		i = 11;
+	}
+
+	var j = i + 1;
+	while(j < 12){
+		console.log("j: " + j);
+		$('.charm-notches div:nth-child(' + j + ')').removeClass("used");
+		j++;
+	}
+
+	while(i > 0){
+		console.log("i: " + i);
+		$('.charm-notches div:nth-child(' + i + ')').addClass("used");
+		i--;
+	}
 }
 
 function setUpTxt(filename, damage){

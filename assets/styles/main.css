@@ -80,7 +80,7 @@ p, li {
 	border-radius: 25px;
 
 	/* TEMPORARY */
-	min-width: 1240px;
+	min-width: 1222px;
 }
 
 .container {
@@ -505,14 +505,26 @@ div::before {
 	transition: 0.5s;
 }
 
+	/* DIMENSIONS */
+
 .spell-selection div::before {
 	height: 70px;
 	width: 75px;
 }
 
+.spell-selection div.hover::before {
+	height: 80px;
+	width: 85px;
+}
+
 .nail-selection div::before {
-	height: 120px;
+	height: 110px;
 	width: 40px;
+}
+
+.nail-selection div.hover::before {
+	height: 140px;
+	width: 45px;
 }
 
 .charm-row div::before {
@@ -520,22 +532,35 @@ div::before {
 	width: 100px;
 }
 
-	/* NAIL AND SPELL IMAGES */
+.charm-row div.hover::before {
+	height: 110px;
+	width: 110px;
+}
 
-.nail-selection div.detection,
 .nail-selection img {
 	height: 100px;
 }
 
-.spell-selection div.detection,
+.nail-selection div.hover img {
+	height: 110px;
+}
+
 .spell-selection img {
 	max-height: 50px;
 	max-width: 50px;
 }
 
-.charm-row div.detection,
+.spell-selection div.hover img {
+	max-height: 60px;
+	max-width: 60px;
+}
+
 .charm-row img {
 	height: 75px;
+}
+
+.charm-row div.hover img {
+	height: 85px;
 }
 
 	/* NAIL AND SPELL SPACING */
@@ -552,7 +577,7 @@ div::before {
 
 .charm-row div:not(.detection) {
 	height: 85px;
-	width: 85px;
+	width: 80px;
 }
 
 .nail-selection div:not(.detection),
@@ -566,6 +591,7 @@ div::before {
 .spell-selection,
 .nail-selection {
 	display: inline-block;
+	vertical-align: middle;
 }
 
 .spell-selection {
@@ -583,7 +609,42 @@ div::before {
 
 .charm-row:nth-last-child(2) {
 	bottom: 10px;
-	left: 42.5px; /* half of div width */
+	left: 45px; /* half of div width */
+}
+
+/* ACTIVE CHARMS */
+
+.active-charms {
+	height: 85px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+/* CHARM NOTCHES */
+
+.charm-notches {
+	padding-left: 20px;
+}
+
+.charm-notches div {
+	display: inline-block;
+	background-size: cover;
+
+	height: 40px;
+
+	background-image: url("../images/gear/charm-notch-unused.png");
+}
+
+.charm-notches img {
+	height: 40px;
+
+	transition: 0.5s;
+
+	opacity: 0;
+}
+
+.charm-notches div.used img {
+	opacity: 1;
 }
 
 /* BODY */
