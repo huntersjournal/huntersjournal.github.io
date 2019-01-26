@@ -64,7 +64,7 @@ $('.inventory').on('click', function(event){
 	}
 });
 
-$('.charm-row > div > img').on('click', function(event){
+$('.charm-row > div > div').on('click', function(event){
 	var html = $(event.target).parent().html();
 	var charm = html.substring(html.indexOf("charms/") + 7, html.indexOf(".png"));
 
@@ -81,7 +81,7 @@ $('.charm-row > div > img').on('click', function(event){
 
 // ON HOVER //
 
-$('.charm-row > div > img').hover(
+$('.detection').hover(
 	function(){
 		$(this).parent().addClass("hover");
 	}, function(){
@@ -89,22 +89,6 @@ $('.charm-row > div > img').hover(
 	}
 );
 
-//Hover over nail
-$('.nail-img').hover(
-	function(){
-		$(this).parent().addClass("hover");
-	}, function(){
-		$(this).parent().removeClass("hover");
-	}
-);
-
-$('.spell-img').hover(
-	function(){
-		$(this).parent().addClass("hover");
-	}, function(){
-		$(this).parent().removeClass("hover");
-	}
-);
 
 $('.current-page').hover(
 	function(){
