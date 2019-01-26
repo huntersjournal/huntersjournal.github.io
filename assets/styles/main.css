@@ -488,6 +488,9 @@ div::before {
 .nail-selection div::before,
 .spell-selection div.detection,
 .spell-selection img,
+.spell-selection div::before,
+.spell-selection div.detection,
+.spell-selection img,
 .spell-selection div::before {
 	left: 50%;
 	top: 50%;
@@ -505,9 +508,6 @@ div::before {
 }
 
 .charm-row div::before {
-	left: -7.5px;
-	bottom: -7.5px;
-
 	height: 100px;
 	width: 100px;
 }
@@ -517,7 +517,9 @@ div::before {
 .nail-selection div.detection,
 .nail-selection img,
 .spell-selection div.detection,
-.spell-selection img {
+.spell-selection img,
+.charm-row div.detection,
+.charm-row img {
 	cursor: pointer;
 	position: absolute;
 
@@ -559,7 +561,6 @@ div::before {
 .spell-selection,
 .nail-selection {
 	display: inline-block;
-	vertical-align: middle;
 }
 
 .spell-selection {
