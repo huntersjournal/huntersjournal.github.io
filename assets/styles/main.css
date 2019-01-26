@@ -38,10 +38,16 @@ Text background: #181830
 
 /* SMOOTH IMAGE MOVEMENT */
 
-img {
+img, div {
 	-webkit-backface-visibility: hidden;
 	-webkit-transform: translateZ(0) scale(1.0, 1.0);
 	transform: translateZ(0);
+
+	-webkit-transform: rotate(0);
+	-moz-transform: rotate(0);
+	transform: rotate(0);
+
+	will-change: opacity;
 }
 
 /* FONTS */
@@ -145,7 +151,7 @@ p, li {
 
 .row img {
 	margin-top: -56px;
-	transition: 0.3s;
+	transition: 0.5s;
 }
 
 .row a:hover img,
@@ -456,7 +462,7 @@ h3 {
 .nail-selection .hover img,
 .charm-row div.hover::before,
 .charm-row .hover img {
-	top: calc(50% - 5px);
+	transform: translate(-50%, calc(-50% - 10px));
 }
 
 div.select::before,
@@ -474,7 +480,7 @@ div::before {
 	content: "";
 	position: absolute;
 	z-index: 0;
-	transition: 0.3s;
+	transition: 0.5s;
 	opacity: 0;
 
 	background-image: radial-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0) 72%);
@@ -496,7 +502,7 @@ div::before {
 	cursor: pointer;
 	position: absolute;
 
-	transition: 0.3s;
+	transition: 0.5s;
 }
 
 .spell-selection div::before {

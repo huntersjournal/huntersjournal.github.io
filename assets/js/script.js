@@ -83,6 +83,7 @@ $('.charm-row > div > div').on('click', function(event){
 
 $('.detection').hover(
 	function(){
+		console.log($(this));
 		$(this).parent().addClass("hover");
 	}, function(){
 		$(this).parent().removeClass("hover");
