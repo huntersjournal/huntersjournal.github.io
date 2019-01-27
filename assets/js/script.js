@@ -32,47 +32,47 @@ var grayChevron = false;
 var glow = "radial-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 70%)";
 
 var charms = [
-	{name:"wayward-compass", notches:1},
-	{name:"gathering-swarm", notches:1},
-	{name:"stalwart-shell", notches:2},
-	{name:"soul-catcher", notches:2},
-	{name:"shaman-stone", notches:3},
-	{name:"soul-eater", notches:4},
-	{name:"dashmaster", notches:2},
-	{name:"thorns-of-agony", notches:1},
-	{name:"fury-of-the-fallen", notches:2},
-	{name:"unbreakable-heart", notches:2},
-	{name:"unbreakable-greed", notches:2},
-	{name:"unbreakable-strength", notches:3},
-	{name:"spell-twister", notches:2},
-	{name:"steady-body", notches:1},
-	{name:"heavy-blow", notches:2},
-	{name:"quick-slash", notches:3},
-	{name:"longnail", notches:2},
-	{name:"mark-of-pride", notches:3},
-	{name:"baldur-shell", notches:2},
-	{name:"flukenest", notches:3},
-	{name:"defenders-crest", notches:1},
-	{name:"glowing-womb", notches:2},
-	{name:"quick-focus", notches:3},
-	{name:"deep-focus", notches:4},
-	{name:"lifeblood-heart", notches:2},
-	{name:"lifeblood-core", notches:3},
-	{name:"jonis-blessing", notches:4},
-	{name:"grubsong", notches:1},
-	{name:"grubberflys-elegy", notches:3},
-	{name:"hiveblood", notches:4},
-	{name:"spore-shroom", notches:1},
-	{name:"sharp-shadow", notches:2},
-	{name:"shape-of-unn", notches:2},
-	{name:"nailmasters-glory", notches:1},
-	{name:"dream-wielder", notches:1},
-	{name:"kingsoul", notches:5},
-	{name:"dreamshield", notches:3},
-	{name:"weaversong", notches:2},
-	{name:"sprintmaster", notches:1},
-	{name:"carefree-melody", notches:3},
-	{name:"grimmchild", notches:2}
+	{id:"wayward-compass", notches:1},
+	{id:"gathering-swarm", notches:1},
+	{id:"stalwart-shell", notches:2},
+	{id:"soul-catcher", notches:2},
+	{id:"shaman-stone", notches:3},
+	{id:"soul-eater", notches:4},
+	{id:"dashmaster", notches:2},
+	{id:"thorns-of-agony", notches:1},
+	{id:"fury-of-the-fallen", notches:2},
+	{id:"unbreakable-heart", notches:2},
+	{id:"unbreakable-greed", notches:2},
+	{id:"unbreakable-strength", notches:3},
+	{id:"spell-twister", notches:2},
+	{id:"steady-body", notches:1},
+	{id:"heavy-blow", notches:2},
+	{id:"quick-slash", notches:3},
+	{id:"longnail", notches:2},
+	{id:"mark-of-pride", notches:3},
+	{id:"baldur-shell", notches:2},
+	{id:"flukenest", notches:3},
+	{id:"defenders-crest", notches:1},
+	{id:"glowing-womb", notches:2},
+	{id:"quick-focus", notches:3},
+	{id:"deep-focus", notches:4},
+	{id:"lifeblood-heart", notches:2},
+	{id:"lifeblood-core", notches:3},
+	{id:"jonis-blessing", notches:4},
+	{id:"grubsong", notches:1},
+	{id:"grubberflys-elegy", notches:3},
+	{id:"hiveblood", notches:4},
+	{id:"spore-shroom", notches:1},
+	{id:"sharp-shadow", notches:2},
+	{id:"shape-of-unn", notches:2},
+	{id:"nailmasters-glory", notches:1},
+	{id:"dream-wielder", notches:1},
+	{id:"kingsoul", notches:5},
+	{id:"dreamshield", notches:3},
+	{id:"weaversong", notches:2},
+	{id:"sprintmaster", notches:1},
+	{id:"carefree-melody", notches:3},
+	{id:"grimmchild", notches:2}
 ];
 
 setup();
@@ -109,26 +109,36 @@ $('.inventory').on('click', function(event){
 });
 
 $('.charm-row > div > div').on('click', function(event){
-	var html = $(event.target).parent().html();
-	var charm = html.substring(html.indexOf("charms/") + 7, html.indexOf(".png"));
+	if(!$(this).hasClass("no-hover")){
+		var html = $(event.target).parent().html();
+		var charm = html.substring(html.indexOf("charms/") + 7, html.indexOf(".png"));
 
-	if(hasCharm(charm)){
-		$(event.target).parent().removeClass("select");
-		removeCharm(charm);
-	}else{
-		equipCharm(charm);
+		if(hasCharm(charm)){
+			$(event.target).parent().removeClass("select");
+			removeCharm(charm);
+
+			if($(event.target).parent().parent().hasClass("active-charms")){
+				$('.' + charm).removeClass("select");
+			}
+		}else{
+			selectCharm(charm);
+		}
+
+		updateDamage();
 	}
-
-	updateDamage();
 });
 
 // ON HOVER //
 
 $('.detection').hover(
 	function(){
-		$(this).parent().addClass("hover");
+		if(!$(this).hasClass("no-hover")){
+			$(this).parent().addClass("hover");
+		}
 	}, function(){
-		$(this).parent().removeClass("hover");
+		if(!$(this).hasClass("no-hover")){
+			$(this).parent().removeClass("hover");
+		}
 	}
 );
 
@@ -206,7 +216,7 @@ function toggleSpell(target){
 	}
 }
 
-function equipCharm(charm) {
+function selectCharm(charm) {
 	//if has < 11 charm notches unused, the equip charm
 	var notches = parseInt(localStorage.getItem("charm-notches"));
 
@@ -235,7 +245,7 @@ function removeCharm(charm){
 function getNotches(charm){
 	var notches = 0;
 	charms.forEach(function(element) {
-		if(element.name == charm){
+		if(element.id == charm){
 			notches = element.notches;
 		}
 	});
@@ -468,19 +478,30 @@ function updateNail() {
 }
 
 function updateEquipped(){
-	$('.active-charms > div').each(function() {
-		if(hasCharm(this.className)){
-			$(this).show();
-		}else{
-			$(this).hide();
-		}
-	});
+	var charms = localStorage.getItem("charmlist");
+	var index = charms.indexOf(",");
+	var counter = 1;
+	while(index != -1){
+		console.log('inside' + counter);
+		equipCharm(charms.substring(0, index), counter, true);
+
+		charms = charms.substring(index + 1, charms.length);
+		index = charms.indexOf(",");
+		counter++;
+	}
+
+	if(counter < 12 && parseInt(localStorage.getItem("charm-notches")) < 11){
+		equipCharm("next", counter, false);
+		counter++;
+	}
+
+	if(counter < 12){
+		equipCharm("blank", counter, false);
+	}
 }
 
 function updateNotches(){
 	var i = parseInt(localStorage.getItem("charm-notches"));
-
-	console.log(i);
 
 	if(i > 11){
 		i = 11;
@@ -488,15 +509,29 @@ function updateNotches(){
 
 	var j = i + 1;
 	while(j < 12){
-		console.log("j: " + j);
 		$('.charm-notches div:nth-child(' + j + ')').removeClass("used");
 		j++;
 	}
 
 	while(i > 0){
-		console.log("i: " + i);
 		$('.charm-notches div:nth-child(' + i + ')').addClass("used");
 		i--;
+	}
+}
+
+function equipCharm(charm, location, canHover){
+	var img = $('.active-charms div:nth-child(' + location + ') > img').attr('src');
+	console.log(img);
+	img = img.substring(0, img.indexOf('charms/') + 7) + charm + img.substring(img.indexOf('.png'), img.length);
+	console.log(img);
+	$('.active-charms div:nth-child(' + location + ') > img').attr('src', img);
+
+	if(canHover){
+		$('.active-charms div:nth-child(' + location + ') > div').removeClass("no-hover");
+		$('.active-charms div:nth-child(' + location + ') > div').prop("title", getTitle(charm));
+	}else{
+		$('.active-charms div:nth-child(' + location + ') > div').addClass("no-hover");
+		$('.active-charms div:nth-child(' + location + ')').removeClass("hover");
 	}
 }
 
@@ -510,6 +545,21 @@ function setUpTxt(filename, damage){
 	}
 
 	return txt;
+}
+
+function getTitle(charm){
+	charm = charm.replace("-", " ");
+
+	var ret = "";
+
+	while(charm.indexOf(" ") != -1){
+		 ret += charm.charAt(0).toUpperCase();
+		 ret += charm.substring(1, charm.indexOf(" ") + 1);
+
+		 charm = charm.substring(charm.indexOf(" ") + 1, charm.length);
+	}
+
+	return ret + charm.charAt(0).toUpperCase() + charm.substring(1, charm.length);
 }
 
 function hasCharm(charm){
