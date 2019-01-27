@@ -499,10 +499,15 @@ div::before {
 	top: 50%;
 	transform: translate(-50%,-50%);
 
-	cursor: pointer;
 	position: absolute;
 
 	transition: 0.5s;
+}
+
+.nail-selection div.detection,
+.spell-selection div.detection,
+.charm-row div:not(.no-hover).detection {
+	cursor: pointer;
 }
 
 	/* DIMENSIONS */
