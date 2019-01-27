@@ -252,7 +252,7 @@ function highlightCharms(){
 }
 
 function highlightCharm(charm){
-	$('#' + charm).addClass("select");
+	$('.' + charm).addClass("select");
 }
 
 function highlightNail(){
