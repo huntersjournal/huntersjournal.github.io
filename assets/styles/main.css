@@ -612,14 +612,6 @@ div::before {
 	left: 45px; /* half of div width */
 }
 
-/* ACTIVE CHARMS */
-
-.active-charms {
-	height: 85px;
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
-
 /* CHARM NOTCHES */
 
 .charm-notches {
@@ -645,6 +637,26 @@ div::before {
 
 .charm-notches div.used img {
 	opacity: 1;
+}
+
+/* ACTIVE CHARMS */
+
+.active-charms {
+	height: 85px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.active-charms div {
+	display: flex;
+}
+
+.active-charms .wayward-compass {
+	order: 10;
+}
+
+.active-charms .gathering-swarm {
+	order: 5;
 }
 
 /* BODY */

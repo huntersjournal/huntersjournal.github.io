@@ -219,6 +219,7 @@ function equipCharm(charm) {
 		localStorage.setItem("charmlist", localStorage.getItem("charmlist") + charm + ",");
 
 		updateNotches();
+		updateEquipped();
 	}
 }
 
@@ -228,12 +229,13 @@ function removeCharm(charm){
 	localStorage.setItem("charmlist", localStorage.getItem("charmlist").replace(charm + ",", ""));
 
 	updateNotches();
+	updateEquipped();
 }
 
 function getNotches(charm){
 	var notches = 0;
 	charms.forEach(function(element) {
-		if(element.name === charm){
+		if(element.name == charm){
 			notches = element.notches;
 		}
 	});
@@ -307,6 +309,7 @@ function setup(){
 	correctSpells();
 	highlightCharms();
 	updateNotches();
+	updateEquipped();
 }
 
 function updateDamage() {
@@ -462,6 +465,16 @@ function updateNail() {
 	damage = Math.ceil(damage);
 
 	$('.nail-art').html(setUpTxt("great-slash", damage));
+}
+
+function updateEquipped(){
+	$('.active-charms > div').each(function() {
+		if(hasCharm(this.className)){
+			$(this).show();
+		}else{
+			$(this).hide();
+		}
+	});
 }
 
 function updateNotches(){
