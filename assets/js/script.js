@@ -15,10 +15,10 @@ function reset(){
 }
 
 //Uncomment below to set values to default on loading the page.
-reset();
+//reset();
 
 //Uncomment below to show charms on loading the page
-$('.inventory').fadeIn('slow', function(event){});
+//$('.inventory').fadeIn('slow', function(event){});
 
 var health = getHealth();
 var nail;
@@ -314,6 +314,8 @@ function getHealth(){
 }
 
 function setup(){
+	fillHTML();
+
 	updateDamage();
 	highlightNail();
 	correctSpells();
@@ -577,4 +579,371 @@ function extraHit(damage){
 	}
 
 	return false;
+}
+
+function fillHTML(){
+	$('.inventory').html(`
+		<div class = "flex-center">
+			<div class="cf centered"><!-- Centered element -->
+
+				<section class="nail-selection"><!-- holds nails, floated left? -->
+					<div>
+						<img src="../assets/images/gear/old-nail.png" alt="">
+						<div class="detection nail-img old" title="Old Nail" >
+						</div>
+					</div>
+					<div>
+						<img src="../assets/images/gear/sharpened-nail.png" alt="">
+						<div class="detection nail-img sharpened" title="Sharpened Nail" >
+						</div>
+					</div>
+					<div>
+						<img src="../assets/images/gear/channelled-nail.png" alt="">
+						<div class="detection nail-img channelled" title="Channelled Nail">
+						</div>
+					</div>
+					<div>
+						<img src="../assets/images/gear/coiled-nail.png" alt="">
+						<div class="detection nail-img coiled" title="Coiled Nail">
+						</div>
+					</div>
+					<div>
+						<img src="../assets/images/gear/pure-nail.png" alt="">
+						<div class="detection nail-img pure" title="Pure Nail">
+						</div>
+					</div>
+				</section>
+
+				<section class="spell-selection"><!-- holds spells, floated left? -->
+					<div>
+						<img class="vengeful-spirit" src="../assets/images/gear/vengeful-spirit.png" alt="">
+						<img class="shade-soul" src="../assets/images/gear/shade-soul.png" alt="">
+						<div class="detection spell-img fireball-img" title="Vengeful Spirit">
+						</div>
+					</div>
+					<div>
+						<img class="desolate-dive" src="../assets/images/gear/desolate-dive.png" alt="">
+						<img class="descending-dark" src="../assets/images/gear/descending-dark.png" alt="">
+						<div class="detection spell-img dive-img" title="Desolate Dive">
+						</div>
+					</div>
+					<div>
+						<img class="howling-wraiths" src="../assets/images/gear/howling-wraiths.png" alt="">
+						<img class="abyss-shriek" src="../assets/images/gear/abyss-shriek.png" alt="">
+						<div class="detection spell-img scream-img" title="Howling Wraiths">
+						</div>
+					</div>
+				</section>
+				<h2>Equipped</h2><!-- May need to wrap with div to get overcharmed image -->
+
+				<section class="charm-row active-charms"><!-- row? of charms -->
+					<div>
+						<img src="../assets/images/charms/next.png" alt="">
+						<div class="detection no-hover" title="">
+						</div>
+					</div>
+					<div>
+						<img src="../assets/images/charms/blank.png" alt="">
+						<div class="detection no-hover" title="">
+						</div>
+					</div>
+					<div>
+						<img src="../assets/images/charms/blank.png" alt="">
+						<div class="detection no-hover" title="">
+						</div>
+					</div>
+					<div>
+						<img src="../assets/images/charms/blank.png" alt="">
+						<div class="detection no-hover" title="">
+						</div>
+					</div>
+					<div>
+						<img src="../assets/images/charms/blank.png" alt="">
+						<div class="detection no-hover" title="">
+						</div>
+					</div>
+					<div>
+						<img src="../assets/images/charms/blank.png" alt="">
+						<div class="detection no-hover" title="">
+						</div>
+					</div>
+					<div>
+						<img src="../assets/images/charms/blank.png" alt="">
+						<div class="detection no-hover" title="">
+						</div>
+					</div>
+					<div>
+						<img src="../assets/images/charms/blank.png" alt="">
+						<div class="detection no-hover" title="">
+						</div>
+					</div>
+					<div>
+						<img src="../assets/images/charms/blank.png" alt="">
+						<div class="detection no-hover" title="">
+						</div>
+					</div>
+					<div>
+						<img src="../assets/images/charms/blank.png" alt="">
+						<div class="detection no-hover" title="">
+						</div>
+					</div>
+					<div>
+						<img src="../assets/images/charms/blank.png" alt="">
+						<div class="detection no-hover" title="">
+						</div>
+					</div>
+				</section>
+
+				<h2>Notches</h2>
+
+				<section class="charm-notches"><!-- row? of notches -->
+					<div>
+						<img src="../assets/images/gear/charm-notch-used.png" alt="">
+					</div>
+					<div>
+						<img src="../assets/images/gear/charm-notch-used.png" alt="">
+					</div>
+					<div>
+					  <img src="../assets/images/gear/charm-notch-used.png" alt="">
+					</div>
+					<div>
+					  <img src="../assets/images/gear/charm-notch-used.png" alt="">
+					</div>
+					<div>
+					  <img src="../assets/images/gear/charm-notch-used.png" alt="">
+					</div>
+					<div>
+					  <img src="../assets/images/gear/charm-notch-used.png" alt="">
+					</div>
+					<div>
+					  <img src="../assets/images/gear/charm-notch-used.png" alt="">
+					</div>
+					<div>
+					  <img src="../assets/images/gear/charm-notch-used.png" alt="">
+					</div>
+					<div>
+					  <img src="../assets/images/gear/charm-notch-used.png" alt="">
+					</div>
+					<div>
+					  <img src="../assets/images/gear/charm-notch-used.png" alt="">
+					</div>
+					<div>
+					  <img src="../assets/images/gear/charm-notch-used.png" alt="">
+					</div>
+				</section>
+
+				<section class="charm-row cf">
+					<div class="wayward-compass">
+						<img src="../assets/images/charms/wayward-compass.png" alt="">
+						<div class="detection" title="Wayward Compass">
+						</div>
+					</div>
+					<div class="gathering-swarm">
+						<img src="../assets/images/charms/gathering-swarm.png" alt="">
+						<div class="detection" title="Gathering Swarm">
+						</div>
+					</div>
+					<div class="stalwart-shell">
+						<img src="../assets/images/charms/stalwart-shell.png" alt="">
+						<div class="detection" title="Stalwart Shell">
+						</div>
+					</div>
+					<div class="soul-catcher">
+						<img src="../assets/images/charms/soul-catcher.png" alt="">
+						<div class="detection" title="Soul Catcher">
+						</div>
+					</div>
+					<div class="shaman-stone">
+						<img src="../assets/images/charms/shaman-stone.png" alt="">
+						<div class="detection" title="Shaman Stone">
+						</div>
+					</div>
+					<div class="soul-eater">
+						<img src="../assets/images/charms/soul-eater.png" alt="">
+						<div class="detection" title="Soul Eater">
+						</div>
+					</div>
+					<div class="dashmaster">
+						<img src="../assets/images/charms/dashmaster.png" alt="">
+						<div class="detection" title="Dashmaster">
+						</div>
+					</div>
+					<div class="sprintmaster">
+						<img src="../assets/images/charms/sprintmaster.png" alt="">
+						<div class="detection" title="Sprintmaster">
+						</div>
+					</div>
+					<div class="grubsong">
+						<img src="../assets/images/charms/grubsong.png" alt="">
+						<div class="detection" title="Grubsong">
+						</div>
+					</div>
+					<div class="grubberflys-elegy">
+						<img src="../assets/images/charms/grubberflys-elegy.png" alt="">
+						<div class="detection" title="Grubberfly's Elegy">
+						</div>
+					</div>
+					<div class="unbreakable-heart">
+						<img src="../assets/images/charms/unbreakable-heart.png" alt="">
+						<div class="detection" title="Unbreakable Heart">
+						</div>
+					</div>
+					<div class="unbreakable-greed">
+						<img src="../assets/images/charms/unbreakable-greed.png" alt="">
+						<div class="detection" title="Unbreakable Greed">
+						</div>
+					</div>
+					<div class="unbreakable-strength">
+						<img src="../assets/images/charms/unbreakable-strength.png" alt="">
+						<div class="detection" title="Unbreakable Strength">
+						</div>
+					</div>
+					<div class="spell-twister">
+						<img src="../assets/images/charms/spell-twister.png" alt="">
+						<div class="detection" title="Spell Twister">
+						</div>
+					</div>
+				</section>
+				<section class="charm-row cf">
+					<div class="steady-body">
+						<img src="../assets/images/charms/steady-body.png" alt="">
+						<div class="detection" title="Steady Body">
+						</div>
+					</div>
+					<div class="heavy-blow">
+						<img src="../assets/images/charms/heavy-blow.png" alt="">
+						<div class="detection" title="Heavy Blow">
+						</div>
+					</div>
+					<div class="quick-slash">
+						<img src="../assets/images/charms/quick-slash.png" alt="">
+						<div class="detection" title="Quick Slash">
+						</div>
+					</div>
+					<div class="longnail">
+						<img src="../assets/images/charms/longnail.png" alt="">
+						<div class="detection" title="Longnail">
+						</div>
+					</div>
+					<div class="mark-of-pride">
+						<img src="../assets/images/charms/mark-of-pride.png" alt="">
+						<div class="detection" title="Mark of Pride">
+						</div>
+					</div>
+					<div class="fury-of-the-fallen">
+						<img src="../assets/images/charms/fury-of-the-fallen.png" alt="">
+						<div class="detection" title="Fury of the Fallen">
+						</div>
+					</div>
+					<div class="thorns-of-agony">
+						<img src="../assets/images/charms/thorns-of-agony.png" alt="">
+						<div class="detection" title="Thorns of Agony">
+						</div>
+					</div>
+					<div class="baldur-shell">
+						<img src="../assets/images/charms/baldur-shell.png" alt="">
+						<div class="detection" title="Baldur Shell">
+						</div>
+					</div>
+					<div class="flukenest">
+						<img src="../assets/images/charms/flukenest.png" alt="">
+						<div class="detection" title="Flukenest">
+						</div>
+					</div>
+					<div class="defenders-crest">
+						<img src="../assets/images/charms/defenders-crest.png" alt="">
+						<div class="detection" title="Defender's Crest">
+						</div>
+					</div>
+					<div class="glowing-womb">
+						<img src="../assets/images/charms/glowing-womb.png" alt="">
+						<div class="detection" title="Glowing Womb">
+						</div>
+					</div>
+					<div class="quick-focus">
+						<img src="../assets/images/charms/quick-focus.png" alt="">
+						<div class="detection" title="Quick Focus">
+						</div>
+					</div>
+					<div class="deep-focus">
+						<img src="../assets/images/charms/deep-focus.png" alt="">
+						<div class="detection" title="Deep Focus">
+						</div>
+					</div>
+				</section>
+				<section class="charm-row cf">
+					<div class="lifeblood-heart">
+						<img src="../assets/images/charms/lifeblood-heart.png" alt="">
+						<div class="detection" title="Lifeblood Heart">
+						</div>
+					</div>
+					<div class="lifeblood-core">
+						<img src="../assets/images/charms/lifeblood-core.png" alt="">
+						<div class="detection" title="Lifeblood Core">
+						</div>
+					</div>
+					<div class="jonis-blessing">
+						<img src="../assets/images/charms/jonis-blessing.png" alt="">
+						<div class="detection" title="Joni's Blessing">
+						</div>
+					</div>
+					<div class="hiveblood">
+						<img src="../assets/images/charms/hiveblood.png" alt="">
+						<div class="detection" title="Hiveblood">
+						</div>
+					</div>
+					<div class="spore-shroom">
+						<img src="../assets/images/charms/spore-shroom.png" alt="">
+						<div class="detection" title="Spore Shroom">
+						</div>
+					</div>
+					<div class="sharp-shadow">
+						<img src="../assets/images/charms/sharp-shadow.png" alt="">
+						<div class="detection" title="Sharp Shadow">
+						</div>
+					</div>
+					<div class="shape-of-unn">
+						<img src="../assets/images/charms/shape-of-unn.png" alt="">
+						<div class="detection" title="Shape of Unn">
+						</div>
+					</div>
+					<div class="nailmasters-glory">
+						<img src="../assets/images/charms/nailmasters-glory.png" alt="">
+						<div class="detection" title="Nailmaster's Glory">
+						</div>
+					</div>
+					<div class="weaversong">
+						<img src="../assets/images/charms/weaversong.png" alt="">
+						<div class="detection" title="Weaversong">
+						</div>
+					</div>
+					<div class="dream-wielder">
+						<img src="../assets/images/charms/dream-wielder.png" alt="">
+						<div class="detection" title="Dream Wielder">
+						</div>
+					</div>
+					<div class="dreamshield">
+						<img src="../assets/images/charms/dreamshield.png" alt="">
+						<div class="detection" title="Dreamshield">
+						</div>
+					</div>
+					<div class="carefree-melody">
+						<img src="../assets/images/charms/carefree-melody.png" alt="">
+						<div class="detection" title="Carefree Melody">
+						</div>
+					</div>
+					<div class="grimmchild">
+						<img src="../assets/images/charms/grimmchild.png" alt="">
+						<div class="detection" title="Grimmchild">
+						</div>
+					</div>
+					<div class="kingsoul">
+						<img src="../assets/images/charms/kingsoul.png" alt="">
+						<div class="detection" title="Kingsoul">
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	`);
 }
