@@ -15,7 +15,7 @@ function reset(){
 }
 
 //Uncomment below to set values to default on loading the page.
-//reset();
+reset();
 
 //Uncomment below to show charms on loading the page
 //$('.inventory').fadeIn('slow', function(event){});
