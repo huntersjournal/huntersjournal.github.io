@@ -244,9 +244,14 @@ function selectCharm(charm) {
 }
 
 function removeCharm(charm){
-	localStorage.setItem("charm-notches", parseInt(localStorage.getItem("charm-notches")) - getNotches(charm));
-
 	localStorage.setItem("charmlist", localStorage.getItem("charmlist").replace(charm + ",", ""));
+
+	if(localStorage.getItem("charmlist") != ""){
+		localStorage.setItem("charm-notches", parseInt(localStorage.getItem("charm-notches")) - getNotches(charm));
+	}else{
+		localStorage.setItem("charm-notches", 0);
+	}
+
 
 	updateNotches();
 	updateEquipped();
