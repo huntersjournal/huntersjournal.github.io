@@ -18,7 +18,7 @@ function reset(){
 //reset();
 
 //Uncomment below to show charms on loading the page
-$('.inventory').fadeIn('slow', function(event){});
+//$('.inventory').fadeIn('slow', function(event){});
 
 var health = getHealth();
 var nail;
@@ -33,7 +33,7 @@ var glow = "radial-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 70%
 
 var charms = [
 	{id:"wayward-compass", name:"Wayward Compass", notches:1, info:"Whispers its location to the bearer whenever a map is open, allowing wanderers to pinpoint their current location."},
-	{id:"gathering-swarm", name:"Gathering Swarm", notches:1, info:"A swarm will follow the bearer and gather up any loose Geo.<br <br Useful for those who can't bear to leave anything behind, no matter how insignificant."},
+	{id:"gathering-swarm", name:"Gathering Swarm", notches:1, info:"A swarm will follow the bearer and gather up any loose Geo.<br /><br />Useful for those who can't bear to leave anything behind, no matter how insignificant."},
 	{id:"stalwart-shell", name:"Stalwart Shell", notches:2, info:"Builds resilience. When recovering from damage, the bearer will remain invulnerable for longer.<br /><br />Makes it easier to escape from dangerous situations."},
 	{id:"soul-catcher", name:"Soul Catcher", notches:2, info:"Used by shamans to draw more SOUL from the world around them.<br /><br />Increases the amount of SOUL gained when striking an enemy with the nail."},
 	{id:"shaman-stone", name:"Shaman Stone", notches:3, info:"Said to contain the knowledge of past generations of shaman.<br /><br />Increases the power of spells, dealing more damage to foes."},
@@ -653,14 +653,13 @@ function fillHTML(){
 		<div class = "flex-center">
 			<div class="cf centered"><!-- Centered element -->
 
-				<div class="charm-info">
-					<h3>Wayward Compass</h3>
+				<div class="charm-info hide-charm-info">
+					<h3></h3>
 					<div class="cost">
 						<h4>Cost</h4>
-						<img src="../assets/images/gear/charm-notch-used.png" alt="">
 					</div>
-					<img class="charm" src="../assets/images/charms/wayward-compass.png" alt=""></img>
-					<p>Whispers its location to the bearer whenever a map is open, allowing wanderers to pinpoint their current location.</p>
+					<img class="charm" src="" alt=""></img>
+					<p></p>
 				</div>
 
 				<div class="misc-inventory">

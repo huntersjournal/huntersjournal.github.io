@@ -76,8 +76,12 @@ p, li {
 	background-color: rgba(10, 10, 10, .9);
 
 	padding: 25px;
-	padding-bottom: 5px; /* padding - distance bottom row moved up */
+	padding-bottom: 15px; /* padding - distance bottom row moved up */
 	border-radius: 25px;
+
+	-webkit-box-shadow:0 0 20px #fff;
+	-moz-box-shadow: 0 0 20px #fff;
+	box-shadow:0 0 20px #fff;
 
 	/* TEMPORARY */
 	min-width: 1222px;
@@ -373,6 +377,10 @@ footer a {
 	margin: 20px auto;
 
 	background: #111;
+
+	-webkit-box-shadow:0 0 20px #fff;
+	-moz-box-shadow: 0 0 20px #fff;
+	box-shadow:0 0 20px #fff;
 }
 
 .mob-desc,
