@@ -690,12 +690,16 @@ div.hover::before {
 }
 
 .charm-info {
-	/*opacity: 0;*/
-	background: #111;
+	transition: 0.5s;
+	opacity: 1;
 
 	float: right;
 	width: 600px;
 	height: 432px;
+}
+
+.hide-charm-info {
+	opacity: 0;
 }
 
 .charm-info h3 {
@@ -704,13 +708,17 @@ div.hover::before {
 
 .cost {
 	text-align: center;
-	margin-top: 20px;
+	margin-top: 15px;
 }
 
 .cost img,
 .cost h4 {
 	vertical-align: middle;
 	display: inline;
+}
+
+.cost h4 {
+	margin-right: 10px;
 }
 
 .cost img {
@@ -728,7 +736,7 @@ div.hover::before {
 .charm-info .charm {
 	height: 100px;
 	display: block;
-	margin: 40px auto;
+	margin: 35px auto;
 }
 
 .charm-info p {

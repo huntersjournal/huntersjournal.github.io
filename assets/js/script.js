@@ -32,47 +32,47 @@ var grayChevron = false;
 var glow = "radial-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 70%)";
 
 var charms = [
-	{id:"wayward-compass", name:"Wayward Compass", notches:1},
-	{id:"gathering-swarm", name:"Gathering Swarm", notches:1},
-	{id:"stalwart-shell", name:"Stalwart Shell", notches:2},
-	{id:"soul-catcher", name:"Soul Catcher", notches:2},
-	{id:"shaman-stone", name:"Shaman Stone", notches:3},
-	{id:"soul-eater", name:"Soul Eater", notches:4},
-	{id:"dashmaster", name:"Dashmaster", notches:2},
-	{id:"thorns-of-agony", name:"Thorns of Agony", notches:1},
-	{id:"fury-of-the-fallen", name:"Fury of the Fallen", notches:2},
-	{id:"unbreakable-heart", name:"Unbreakable Heart", notches:2},
-	{id:"unbreakable-greed", name:"Unbreakable Greed", notches:2},
-	{id:"unbreakable-strength", name:"Unbreakable Strength", notches:3},
-	{id:"spell-twister", name:"Spell Twister", notches:2},
-	{id:"steady-body", name:"Steady Body", notches:1},
-	{id:"heavy-blow", name:"Heavy Blow", notches:2},
-	{id:"quick-slash", name:"Quick Slash", notches:3},
-	{id:"longnail", name:"Longnail", notches:2},
-	{id:"mark-of-pride", name:"Mark of Pride", notches:3},
-	{id:"baldur-shell", name:"Baldur Shell", notches:2},
-	{id:"flukenest", name:"Flukenest", notches:3},
-	{id:"defenders-crest", name:"Defender's Crest", notches:1},
-	{id:"glowing-womb", name:"Glowing Womb", notches:2},
-	{id:"quick-focus", name:"Quick Focus", notches:3},
-	{id:"deep-focus", name:"Deep Focus", notches:4},
-	{id:"lifeblood-heart", name:"Lifeblood Heart", notches:2},
-	{id:"lifeblood-core", name:"Lifeblood Core", notches:3},
-	{id:"jonis-blessing", name:"Joni's Blessing", notches:4},
-	{id:"grubsong", name:"Grubsong", notches:1},
-	{id:"grubberflys-elegy", name:"Grubberfly's Elegy", notches:3},
-	{id:"hiveblood", name:"Hiveblood", notches:4},
-	{id:"spore-shroom", name:"Spore Shroom", notches:1},
-	{id:"sharp-shadow", name:"Sharp Shadow", notches:2},
-	{id:"shape-of-unn", name:"Shape of Unn", notches:2},
-	{id:"nailmasters-glory", name:"Nailmaster's Glory", notches:1},
-	{id:"dream-wielder", name:"Dream Wielder", notches:1},
-	{id:"kingsoul", name:"Kingsoul", notches:5},
-	{id:"dreamshield", name:"Dreamshield", notches:3},
-	{id:"weaversong", name:"Weaversong", notches:2},
-	{id:"sprintmaster", name:"Sprintmaster", notches:1},
-	{id:"carefree-melody", name:"Carefree Melody", notches:3},
-	{id:"grimmchild", name:"Grimmchild", notches:2}
+	{id:"wayward-compass", name:"Wayward Compass", notches:1, info:"Whispers its location to the bearer whenever a map is open, allowing wanderers to pinpoint their current location."},
+	{id:"gathering-swarm", name:"Gathering Swarm", notches:1, info:"A swarm will follow the bearer and gather up any loose Geo.<br <br Useful for those who can't bear to leave anything behind, no matter how insignificant."},
+	{id:"stalwart-shell", name:"Stalwart Shell", notches:2, info:"Builds resilience. When recovering from damage, the bearer will remain invulnerable for longer.<br /><br />Makes it easier to escape from dangerous situations."},
+	{id:"soul-catcher", name:"Soul Catcher", notches:2, info:"Used by shamans to draw more SOUL from the world around them.<br /><br />Increases the amount of SOUL gained when striking an enemy with the nail."},
+	{id:"shaman-stone", name:"Shaman Stone", notches:3, info:"Said to contain the knowledge of past generations of shaman.<br /><br />Increases the power of spells, dealing more damage to foes."},
+	{id:"soul-eater", name:"Soul Eater", notches:4, info:"Forgotten shaman artifact, used to draw SOUL from still-living creatures.<br /><br />Greatly increases the amount of SOUL gained when striking an enemy with the nail."},
+	{id:"dashmaster", name:"Dashmaster", notches:2, info:"Bears the likeness of an eccentric bug known only as 'The Dashmaster'.<br /><br />The bearer will be able to dash more often as well as dash downwards. Perfect for those who want to move around as quickly as possible."},
+	{id:"thorns-of-agony", name:"Thorns of Agony", notches:1, info:"Senses the pain of its bearer and lashes out at the world around them.<br /><br />When taking damage, sprout thorny vines that damage nearby foes."},
+	{id:"fury-of-the-fallen", name:"Fury of the Fallen", notches:2, info:"Embodies the fury and heroism that comes upon those who are about to die.<br /><br />When close to death, the bearer's strength will increase."},
+	{id:"unbreakable-heart", name:"Unbreakable Heart", notches:2, info:"Increases the health of the bearer, allowing them to take more damage.<br /><br />This charm is unbreakable."},
+	{id:"unbreakable-greed", name:"Unbreakable Greed", notches:2, info:"Causes the bearer to find more Geo when defeating enemies.<br /><br />This charm is unbreakable."},
+	{id:"unbreakable-strength", name:"Unbreakable Strength", notches:3, info:"Strengthens the bearer, increasing the damage they deal to enemies with their nail.<br /><br />This charm is unbreakable."},
+	{id:"spell-twister", name:"Spell Twister", notches:2, info:"Reflecting the desires of the Soul Sanctum for mastery over SOUL, it improves the bearer's ability to cast spells.<br /><br />Reduces the SOUL cost of casting spells."},
+	{id:"steady-body", name:"Steady Body", notches:1, info:"Keeps its bearer from recoiling backwards when they strike an enemy with a nail.<br /><br />Allows one to stay steady and keep attacking."},
+	{id:"heavy-blow", name:"Heavy Blow", notches:2, info:"Formed from the nails of fallen warriors.<br /><br />Increases the force of the bearer's nail, causing enemies to recoil further when hit."},
+	{id:"quick-slash", name:"Quick Slash", notches:3, info:"Born from imperfect, discarded nails that have fused together. The nails still long to be wielded.<br /><br />Allows the bearer to slash much more rapidly with their nail."},
+	{id:"longnail", name:"Longnail", notches:2, info:"Increases the range of the bearer's nail, allowing them to strike foes from further away."},
+	{id:"mark-of-pride", name:"Mark of Pride", notches:3, info:"Freely given by the Mantis Tribe to those they respect.<br /><br />Greatly increases the range of the bearer's nail, allowing them to strike foes from further away."},
+	{id:"baldur-shell", name:"Baldur Shell", notches:2, info:"Protects its bearer with a hard shell while focusing SOUL.<br /><br />The shell is not indestructible and will shatter if it absorbs too much damage."},
+	{id:"flukenest", name:"Flukenest", notches:3, info:"Living charm born in the gut of a Flukemarm.<br /><br />Transforms the Vengeful Spirit and Shade Soul spells into a horde of volatile baby flukes."},
+	{id:"defenders-crest", name:"Defender's Crest", notches:1, info:"Unique charm bestowed by the King of Hallownest to his most loyal knight. Scratched and dirty, but still cared for.<br /><br />Causes the bearer to emit a heroic odour."},
+	{id:"glowing-womb", name:"Glowing Womb", notches:2, info:"Drains the SOUL of its bearer and uses it to birth hatchlings.<br /><br />The hatchlings have no desire to eat or live, and will sacrifice themselves to protect their parent."},
+	{id:"quick-focus", name:"Quick Focus", notches:3, info:"A charm containing a crystal lens.<br /><br />Increases the speed of focusing SOUL, allowing the bearer to heal damage faster."},
+	{id:"deep-focus", name:"Deep Focus", notches:4, info:"Naturally formed within a crystal over a long period. Draws in SOUL from the surrounding air.<br /><br />The bearer will focus SOUL at a slower rate, but the healing effect will double."},
+	{id:"lifeblood-heart", name:"Lifeblood Heart", notches:2, info:"Contains a living core that seeps precious lifeblood.<br /><br />When resting, the bearer will gain a coating of lifeblood that protects from a modest amount of damage."},
+	{id:"lifeblood-core", name:"Lifeblood Core", notches:3, info:"Contains a living core that bleeds precious lifeblood.<br /><br />When resting, the bearer will gain a coating of lifeblood that protects from a large amount of damage."},
+	{id:"jonis-blessing", name:"Joni's Blessing", notches:4, info:"Blessed by Joni, the kindly heretic. Transfigures vital fluids into blue lifeblood.<br /><br />The bearer will have a healthier shell and can take more damage, but they will not be able to heal themselves by focusing SOUL."},
+	{id:"grubsong", name:"Grubsong", notches:1, info:"Contains the gratitude of freed grubs.<br /><br />Gain SOUL when taking damage."},
+	{id:"grubberflys-elegy", name:"Grubberfly's Elegy", notches:3, info:"Contains the gratitude of grubs who will move to the next stage of their lives. Imbues weapons with a holy strength.<br /><br />When the bearer is at full health, they will fire beams of white-hot energy from their nail."},
+	{id:"hiveblood", name:"Hiveblood", notches:4, info:"Golden nugget of the Hive's precious hardened nectar.<br /><br />Heals the bearer's wounds over time, allowing them to regain health without focusing SOUL."},
+	{id:"spore-shroom", name:"Spore Shroom", notches:1, info:"Composed of living fungal matter. Scatters spores when exposed to SOUL.<br /><br />When focusing SOUL, emit a spore cloud that slowly damages enemies."},
+	{id:"sharp-shadow", name:"Sharp Shadow", notches:2, info:"Contains a forbidden spell that transforms shadows into deadly weapons.<br /><br />When using Shadow Dash, the bearer's body will sharpen and damage enemies."},
+	{id:"shape-of-unn", name:"Shape of Unn", notches:2, info:"Reveals the form of Unn within the bearer.<br /><br />While focusing SOUL, the bearer will take on a new shape and can move freely to avoid enemies."},
+	{id:"nailmasters-glory", name:"Nailmaster's Glory", notches:1, info:"Contains the passion, skill and regrets of a Nailmaster.<br /><br />Increases the bearer's mastery of Nail Arts, allowing them to focus their power faster and unleash arts sooner."},
+	{id:"dream-wielder", name:"Dream Wielder", notches:1, info:"Transient charm created for those who wield the Dream Nail and collect Essence.<br /><br />Allows the bearer to charge the Dream Nail faster and collect more SOUL when striking foes."},
+	{id:"kingsoul", name:"Kingsoul", notches:5, info:"Holy charm symbolising a union between higher beings. The bearer will slowly absorb the limitless SOUL contained within.<br /><br />Opens the way to a birthplace."},
+	{id:"dreamshield", name:"Dreamshield", notches:3, info:"Defensive charm once wielded by a tribe that could shape dreams.<br /><br />Conjures a shield that follows the bearer and attempts to protect them.	"},
+	{id:"weaversong", name:"Weaversong", notches:2, info:"Silken charm containing a song of farewell, left by the Weavers who departed Hallownest for their old home.<br /><br />Summons weaverlings to give the lonely bearer some companionship and protection."},
+	{id:"sprintmaster", name:"Sprintmaster", notches:1, info:"Bears the likeness of a strange bug known only as 'The Sprintmaster'.<br /><br />Increases the running speed of the bearer, allowing them to avoid danger or overtake rivals."},
+	{id:"carefree-melody", name:"Carefree Melody", notches:3, info:"Token commemorating the start of a friendship.<br /><br />Contains a song of protection that may defend the bearer from damage.	"},
+	{id:"grimmchild", name:"Grimmchild", notches:2, info:"Symbol of a completed ritual.<br /><br />Contains a living, scarlet flame."}
 ];
 
 setup();
@@ -120,6 +120,7 @@ $('.charm-row > div > div').on('click', function(event){
 			if($(event.target).parent().parent().hasClass("active-charms")){
 				$('.' + charm).removeClass("select");
 			}
+			updateCharmInfo($(this).prop("title"));
 		}else{
 			selectCharm(charm);
 		}
@@ -134,10 +135,18 @@ $('.detection').hover(
 	function(){
 		if(!$(this).hasClass("no-hover")){
 			$(this).parent().addClass("hover");
+
+			if($(this).parent().parent().hasClass("charm-row")){
+				updateCharmInfo($(this).prop("title"));
+			}
 		}
 	}, function(){
 		if(!$(this).hasClass("no-hover")){
 			$(this).parent().removeClass("hover");
+
+			if($(this).parent().parent().hasClass("charm-row")){
+				updateCharmInfo("");
+			}
 		}
 	}
 );
@@ -159,6 +168,7 @@ $('.current-page').hover(
 
 // FUNCTIONS //
 
+//Swaps the selected spell between upgraded and un-upgraded variant
 function toggleSpell(target){
 	var classes = target.classList;
 
@@ -216,8 +226,8 @@ function toggleSpell(target){
 	}
 }
 
+//Takes in a charm, and adds it to the equipped charms if space is available.
 function selectCharm(charm) {
-	//if has < 11 charm notches unused, the equip charm
 	var notches = parseInt(localStorage.getItem("charm-notches"));
 
 	if(notches < 11){
@@ -522,6 +532,32 @@ function updateNotches(){
 	}
 }
 
+function updateCharmInfo(charmTitle){
+	if(charmTitle == ""){
+		$('.charm-info').addClass("hide-charm-info");
+	}else{
+		var charm = getId(charmTitle);
+		var notches = getNotches(charm);
+		var info = getInfo(charm);
+
+		$('.charm-info > h3').html(charmTitle);
+
+		$('.charm-info > img').attr('src', "../assets/images/charms/" + charm + ".png");
+
+		var cost = "<h4>Cost</h4>";
+
+		while(notches > 0){
+			cost += '<img src="../assets/images/gear/charm-notch-used.png" alt="">';
+			notches--;
+		}
+
+		$('.cost').html(cost);
+		$('.charm-info > p').html(info);
+
+		$('.charm-info').removeClass("hide-charm-info");
+	}
+}
+
 function setOvercharmed(isOvercharmed){
 	if(isOvercharmed){
 		$('.equipped-title').addClass('show-overcharmed');
@@ -573,6 +609,26 @@ function getTitle(charm){
 		}
 	});
 	return title;
+}
+
+function getId(title){
+	var charm = "";
+	charms.forEach(function(element) {
+		if(element.name == title){
+			charm = element.id;
+		}
+	});
+	return charm;
+}
+
+function getInfo(charm){
+	var info = "";
+	charms.forEach(function(element) {
+		if(element.id == charm){
+			info = element.info;
+		}
+	});
+	return info;
 }
 
 function hasCharm(charm){
