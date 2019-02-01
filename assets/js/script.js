@@ -18,7 +18,7 @@ function reset(){
 //reset();
 
 //Uncomment below to show charms on loading the page
-//$('.inventory').fadeIn('slow', function(event){});
+$('.inventory').fadeIn('slow', function(event){});
 
 var health = getHealth();
 var nail;
@@ -32,47 +32,47 @@ var grayChevron = false;
 var glow = "radial-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 70%)";
 
 var charms = [
-	{id:"wayward-compass", notches:1},
-	{id:"gathering-swarm", notches:1},
-	{id:"stalwart-shell", notches:2},
-	{id:"soul-catcher", notches:2},
-	{id:"shaman-stone", notches:3},
-	{id:"soul-eater", notches:4},
-	{id:"dashmaster", notches:2},
-	{id:"thorns-of-agony", notches:1},
-	{id:"fury-of-the-fallen", notches:2},
-	{id:"unbreakable-heart", notches:2},
-	{id:"unbreakable-greed", notches:2},
-	{id:"unbreakable-strength", notches:3},
-	{id:"spell-twister", notches:2},
-	{id:"steady-body", notches:1},
-	{id:"heavy-blow", notches:2},
-	{id:"quick-slash", notches:3},
-	{id:"longnail", notches:2},
-	{id:"mark-of-pride", notches:3},
-	{id:"baldur-shell", notches:2},
-	{id:"flukenest", notches:3},
-	{id:"defenders-crest", notches:1},
-	{id:"glowing-womb", notches:2},
-	{id:"quick-focus", notches:3},
-	{id:"deep-focus", notches:4},
-	{id:"lifeblood-heart", notches:2},
-	{id:"lifeblood-core", notches:3},
-	{id:"jonis-blessing", notches:4},
-	{id:"grubsong", notches:1},
-	{id:"grubberflys-elegy", notches:3},
-	{id:"hiveblood", notches:4},
-	{id:"spore-shroom", notches:1},
-	{id:"sharp-shadow", notches:2},
-	{id:"shape-of-unn", notches:2},
-	{id:"nailmasters-glory", notches:1},
-	{id:"dream-wielder", notches:1},
-	{id:"kingsoul", notches:5},
-	{id:"dreamshield", notches:3},
-	{id:"weaversong", notches:2},
-	{id:"sprintmaster", notches:1},
-	{id:"carefree-melody", notches:3},
-	{id:"grimmchild", notches:2}
+	{id:"wayward-compass", name:"Wayward Compass", notches:1},
+	{id:"gathering-swarm", name:"Gathering Swarm", notches:1},
+	{id:"stalwart-shell", name:"Stalwart Shell", notches:2},
+	{id:"soul-catcher", name:"Soul Catcher", notches:2},
+	{id:"shaman-stone", name:"Shaman Stone", notches:3},
+	{id:"soul-eater", name:"Soul Eater", notches:4},
+	{id:"dashmaster", name:"Dashmaster", notches:2},
+	{id:"thorns-of-agony", name:"Thorns of Agony", notches:1},
+	{id:"fury-of-the-fallen", name:"Fury of the Fallen", notches:2},
+	{id:"unbreakable-heart", name:"Unbreakable Heart", notches:2},
+	{id:"unbreakable-greed", name:"Unbreakable Greed", notches:2},
+	{id:"unbreakable-strength", name:"Unbreakable Strength", notches:3},
+	{id:"spell-twister", name:"Spell Twister", notches:2},
+	{id:"steady-body", name:"Steady Body", notches:1},
+	{id:"heavy-blow", name:"Heavy Blow", notches:2},
+	{id:"quick-slash", name:"Quick Slash", notches:3},
+	{id:"longnail", name:"Longnail", notches:2},
+	{id:"mark-of-pride", name:"Mark of Pride", notches:3},
+	{id:"baldur-shell", name:"Baldur Shell", notches:2},
+	{id:"flukenest", name:"Flukenest", notches:3},
+	{id:"defenders-crest", name:"Defender's Crest", notches:1},
+	{id:"glowing-womb", name:"Glowing Womb", notches:2},
+	{id:"quick-focus", name:"Quick Focus", notches:3},
+	{id:"deep-focus", name:"Deep Focus", notches:4},
+	{id:"lifeblood-heart", name:"Lifeblood Heart", notches:2},
+	{id:"lifeblood-core", name:"Lifeblood Core", notches:3},
+	{id:"jonis-blessing", name:"Joni's Blessing", notches:4},
+	{id:"grubsong", name:"Grubsong", notches:1},
+	{id:"grubberflys-elegy", name:"Grubberfly's Elegy", notches:3},
+	{id:"hiveblood", name:"Hiveblood", notches:4},
+	{id:"spore-shroom", name:"Spore Shroom", notches:1},
+	{id:"sharp-shadow", name:"Sharp Shadow", notches:2},
+	{id:"shape-of-unn", name:"Shape of Unn", notches:2},
+	{id:"nailmasters-glory", name:"Nailmaster's Glory", notches:1},
+	{id:"dream-wielder", name:"Dream Wielder", notches:1},
+	{id:"kingsoul", name:"Kingsoul", notches:5},
+	{id:"dreamshield", name:"Dreamshield", notches:3},
+	{id:"weaversong", name:"Weaversong", notches:2},
+	{id:"sprintmaster", name:"Sprintmaster", notches:1},
+	{id:"carefree-melody", name:"Carefree Melody", notches:3},
+	{id:"grimmchild", name:"Grimmchild", notches:2}
 ];
 
 setup();
@@ -243,13 +243,13 @@ function removeCharm(charm){
 }
 
 function getNotches(charm){
-	var notches = 0;
+	var notch = 0;
 	charms.forEach(function(element) {
 		if(element.id == charm){
-			notches = element.notches;
+			notch = element.notches;
 		}
 	});
-	return notches;
+	return notch;
 }
 
 function highlightCharms(){
@@ -484,7 +484,6 @@ function updateEquipped(){
 	var index = charms.indexOf(",");
 	var counter = 1;
 	while(index != -1){
-		console.log('inside' + counter);
 		equipCharm(charms.substring(0, index), counter, true);
 
 		charms = charms.substring(index + 1, charms.length);
@@ -505,6 +504,8 @@ function updateEquipped(){
 function updateNotches(){
 	var i = parseInt(localStorage.getItem("charm-notches"));
 
+	setOvercharmed(i > 11);
+
 	if(i > 11){
 		i = 11;
 	}
@@ -521,19 +522,34 @@ function updateNotches(){
 	}
 }
 
+function setOvercharmed(isOvercharmed){
+	if(isOvercharmed){
+		$('.equipped-title').addClass('show-overcharmed');
+	}else{
+		$('.equipped-title').removeClass('show-overcharmed');
+	}
+}
+
 function equipCharm(charm, location, canHover){
-	var img = $('.active-charms div:nth-child(' + location + ') > img').attr('src');
-	console.log(img);
+	var row;
+
+	if(location < 7){
+		row = '.active-charms:eq(0) > div:nth-child(' + location + ')';
+	}else{
+		row = '.active-charms:eq(1) > div:nth-child(' + (location - 6) + ')';
+	}
+
+	var img = $(row + ' > img').attr('src');
 	img = img.substring(0, img.indexOf('charms/') + 7) + charm + img.substring(img.indexOf('.png'), img.length);
-	console.log(img);
-	$('.active-charms div:nth-child(' + location + ') > img').attr('src', img);
+
+	$(row + ' > img').attr('src', img);
 
 	if(canHover){
-		$('.active-charms div:nth-child(' + location + ') > div').removeClass("no-hover");
-		$('.active-charms div:nth-child(' + location + ') > div').prop("title", getTitle(charm));
+		$(row + ' > div').removeClass("no-hover");
+		$(row + ' > div').prop("title", getTitle(charm));
 	}else{
-		$('.active-charms div:nth-child(' + location + ') > div').addClass("no-hover");
-		$('.active-charms div:nth-child(' + location + ')').removeClass("hover");
+		$(row + ' > div').addClass("no-hover").removeAttr("title");
+		$(row).removeClass("hover");
 	}
 }
 
@@ -550,18 +566,13 @@ function setUpTxt(filename, damage){
 }
 
 function getTitle(charm){
-	charm = charm.replace("-", " ");
-
-	var ret = "";
-
-	while(charm.indexOf(" ") != -1){
-		 ret += charm.charAt(0).toUpperCase();
-		 ret += charm.substring(1, charm.indexOf(" ") + 1);
-
-		 charm = charm.substring(charm.indexOf(" ") + 1, charm.length);
-	}
-
-	return ret + charm.charAt(0).toUpperCase() + charm.substring(1, charm.length);
+	var title = "";
+	charms.forEach(function(element) {
+		if(element.id == charm){
+			title = element.name;
+		}
+	});
+	return title;
 }
 
 function hasCharm(charm){
@@ -586,151 +597,170 @@ function fillHTML(){
 		<div class = "flex-center">
 			<div class="cf centered"><!-- Centered element -->
 
-				<section class="nail-selection"><!-- holds nails, floated left? -->
-					<div>
-						<img src="../assets/images/gear/old-nail.png" alt="">
-						<div class="detection nail-img old" title="Old Nail" >
-						</div>
-					</div>
-					<div>
-						<img src="../assets/images/gear/sharpened-nail.png" alt="">
-						<div class="detection nail-img sharpened" title="Sharpened Nail" >
-						</div>
-					</div>
-					<div>
-						<img src="../assets/images/gear/channelled-nail.png" alt="">
-						<div class="detection nail-img channelled" title="Channelled Nail">
-						</div>
-					</div>
-					<div>
-						<img src="../assets/images/gear/coiled-nail.png" alt="">
-						<div class="detection nail-img coiled" title="Coiled Nail">
-						</div>
-					</div>
-					<div>
-						<img src="../assets/images/gear/pure-nail.png" alt="">
-						<div class="detection nail-img pure" title="Pure Nail">
-						</div>
-					</div>
-				</section>
-
-				<section class="spell-selection"><!-- holds spells, floated left? -->
-					<div>
-						<img class="vengeful-spirit" src="../assets/images/gear/vengeful-spirit.png" alt="">
-						<img class="shade-soul" src="../assets/images/gear/shade-soul.png" alt="">
-						<div class="detection spell-img fireball-img" title="Vengeful Spirit">
-						</div>
-					</div>
-					<div>
-						<img class="desolate-dive" src="../assets/images/gear/desolate-dive.png" alt="">
-						<img class="descending-dark" src="../assets/images/gear/descending-dark.png" alt="">
-						<div class="detection spell-img dive-img" title="Desolate Dive">
-						</div>
-					</div>
-					<div>
-						<img class="howling-wraiths" src="../assets/images/gear/howling-wraiths.png" alt="">
-						<img class="abyss-shriek" src="../assets/images/gear/abyss-shriek.png" alt="">
-						<div class="detection spell-img scream-img" title="Howling Wraiths">
-						</div>
-					</div>
-				</section>
-				<h2>Equipped</h2><!-- May need to wrap with div to get overcharmed image -->
-
-				<section class="charm-row active-charms"><!-- row? of charms -->
-					<div>
-						<img src="../assets/images/charms/next.png" alt="">
-						<div class="detection no-hover" title="">
-						</div>
-					</div>
-					<div>
-						<img src="../assets/images/charms/blank.png" alt="">
-						<div class="detection no-hover" title="">
-						</div>
-					</div>
-					<div>
-						<img src="../assets/images/charms/blank.png" alt="">
-						<div class="detection no-hover" title="">
-						</div>
-					</div>
-					<div>
-						<img src="../assets/images/charms/blank.png" alt="">
-						<div class="detection no-hover" title="">
-						</div>
-					</div>
-					<div>
-						<img src="../assets/images/charms/blank.png" alt="">
-						<div class="detection no-hover" title="">
-						</div>
-					</div>
-					<div>
-						<img src="../assets/images/charms/blank.png" alt="">
-						<div class="detection no-hover" title="">
-						</div>
-					</div>
-					<div>
-						<img src="../assets/images/charms/blank.png" alt="">
-						<div class="detection no-hover" title="">
-						</div>
-					</div>
-					<div>
-						<img src="../assets/images/charms/blank.png" alt="">
-						<div class="detection no-hover" title="">
-						</div>
-					</div>
-					<div>
-						<img src="../assets/images/charms/blank.png" alt="">
-						<div class="detection no-hover" title="">
-						</div>
-					</div>
-					<div>
-						<img src="../assets/images/charms/blank.png" alt="">
-						<div class="detection no-hover" title="">
-						</div>
-					</div>
-					<div>
-						<img src="../assets/images/charms/blank.png" alt="">
-						<div class="detection no-hover" title="">
-						</div>
-					</div>
-				</section>
-
-				<h2>Notches</h2>
-
-				<section class="charm-notches"><!-- row? of notches -->
-					<div>
+				<div class="charm-info">
+					<h3>Wayward Compass</h3>
+					<div class="cost">
+						<h4>Cost</h4>
 						<img src="../assets/images/gear/charm-notch-used.png" alt="">
 					</div>
-					<div>
-						<img src="../assets/images/gear/charm-notch-used.png" alt="">
+					<img class="charm" src="../assets/images/charms/wayward-compass.png" alt=""></img>
+					<p>Whispers its location to the bearer whenever a map is open, allowing wanderers to pinpoint their current location.</p>
+				</div>
+
+				<div class="misc-inventory">
+					<section class="nail-selection">
+						<div>
+							<img src="../assets/images/gear/old-nail.png" alt="">
+							<div class="detection nail-img old" title="Old Nail" >
+							</div>
+						</div>
+						<div>
+							<img src="../assets/images/gear/sharpened-nail.png" alt="">
+							<div class="detection nail-img sharpened" title="Sharpened Nail" >
+							</div>
+						</div>
+						<div>
+							<img src="../assets/images/gear/channelled-nail.png" alt="">
+							<div class="detection nail-img channelled" title="Channelled Nail">
+							</div>
+						</div>
+						<div>
+							<img src="../assets/images/gear/coiled-nail.png" alt="">
+							<div class="detection nail-img coiled" title="Coiled Nail">
+							</div>
+						</div>
+						<div>
+							<img src="../assets/images/gear/pure-nail.png" alt="">
+							<div class="detection nail-img pure" title="Pure Nail">
+							</div>
+						</div>
+					</section>
+
+					<section class="spell-selection"><!-- holds spells, floated left? -->
+						<div>
+							<img class="vengeful-spirit" src="../assets/images/gear/vengeful-spirit.png" alt="">
+							<img class="shade-soul" src="../assets/images/gear/shade-soul.png" alt="">
+							<div class="detection spell-img fireball-img" title="Vengeful Spirit">
+							</div>
+						</div>
+						<div>
+							<img class="desolate-dive" src="../assets/images/gear/desolate-dive.png" alt="">
+							<img class="descending-dark" src="../assets/images/gear/descending-dark.png" alt="">
+							<div class="detection spell-img dive-img" title="Desolate Dive">
+							</div>
+						</div>
+						<div>
+							<img class="howling-wraiths" src="../assets/images/gear/howling-wraiths.png" alt="">
+							<img class="abyss-shriek" src="../assets/images/gear/abyss-shriek.png" alt="">
+							<div class="detection spell-img scream-img" title="Howling Wraiths">
+							</div>
+						</div>
+					</section>
+
+					<div class="equipped-title">
+						<h2 class="equip">Equipped</h2>
+						<h2 class="over">Overcharmed</h2>
+						<img src="../assets/images/gear/overcharmed.png" alt="">
 					</div>
-					<div>
-					  <img src="../assets/images/gear/charm-notch-used.png" alt="">
-					</div>
-					<div>
-					  <img src="../assets/images/gear/charm-notch-used.png" alt="">
-					</div>
-					<div>
-					  <img src="../assets/images/gear/charm-notch-used.png" alt="">
-					</div>
-					<div>
-					  <img src="../assets/images/gear/charm-notch-used.png" alt="">
-					</div>
-					<div>
-					  <img src="../assets/images/gear/charm-notch-used.png" alt="">
-					</div>
-					<div>
-					  <img src="../assets/images/gear/charm-notch-used.png" alt="">
-					</div>
-					<div>
-					  <img src="../assets/images/gear/charm-notch-used.png" alt="">
-					</div>
-					<div>
-					  <img src="../assets/images/gear/charm-notch-used.png" alt="">
-					</div>
-					<div>
-					  <img src="../assets/images/gear/charm-notch-used.png" alt="">
-					</div>
-				</section>
+
+					<section class="charm-row active-charms">
+						<div>
+							<img src="../assets/images/charms/next.png" alt="">
+							<div class="detection no-hover" title="">
+							</div>
+						</div>
+						<div>
+							<img src="../assets/images/charms/blank.png" alt="">
+							<div class="detection no-hover" title="">
+							</div>
+						</div>
+						<div>
+							<img src="../assets/images/charms/blank.png" alt="">
+							<div class="detection no-hover" title="">
+							</div>
+						</div>
+						<div>
+							<img src="../assets/images/charms/blank.png" alt="">
+							<div class="detection no-hover" title="">
+							</div>
+						</div>
+						<div>
+							<img src="../assets/images/charms/blank.png" alt="">
+							<div class="detection no-hover" title="">
+							</div>
+						</div>
+						<div>
+							<img src="../assets/images/charms/blank.png" alt="">
+							<div class="detection no-hover" title="">
+							</div>
+						</div>
+					</section>
+					<section class="charm-row active-charms">
+						<div>
+							<img src="../assets/images/charms/blank.png" alt="">
+							<div class="detection no-hover" title="">
+							</div>
+						</div>
+						<div>
+							<img src="../assets/images/charms/blank.png" alt="">
+							<div class="detection no-hover" title="">
+							</div>
+						</div>
+						<div>
+							<img src="../assets/images/charms/blank.png" alt="">
+							<div class="detection no-hover" title="">
+							</div>
+						</div>
+						<div>
+							<img src="../assets/images/charms/blank.png" alt="">
+							<div class="detection no-hover" title="">
+							</div>
+						</div>
+						<div>
+							<img src="../assets/images/charms/blank.png" alt="">
+							<div class="detection no-hover" title="">
+							</div>
+						</div>
+					</section>
+
+					<h2>Notches</h2>
+
+					<section class="charm-notches"><!-- row? of notches -->
+						<div>
+							<img src="../assets/images/gear/charm-notch-used.png" alt="">
+						</div>
+						<div>
+							<img src="../assets/images/gear/charm-notch-used.png" alt="">
+						</div>
+						<div>
+						  <img src="../assets/images/gear/charm-notch-used.png" alt="">
+						</div>
+						<div>
+						  <img src="../assets/images/gear/charm-notch-used.png" alt="">
+						</div>
+						<div>
+						  <img src="../assets/images/gear/charm-notch-used.png" alt="">
+						</div>
+						<div>
+						  <img src="../assets/images/gear/charm-notch-used.png" alt="">
+						</div>
+						<div>
+						  <img src="../assets/images/gear/charm-notch-used.png" alt="">
+						</div>
+						<div>
+						  <img src="../assets/images/gear/charm-notch-used.png" alt="">
+						</div>
+						<div>
+						  <img src="../assets/images/gear/charm-notch-used.png" alt="">
+						</div>
+						<div>
+						  <img src="../assets/images/gear/charm-notch-used.png" alt="">
+						</div>
+						<div>
+						  <img src="../assets/images/gear/charm-notch-used.png" alt="">
+						</div>
+					</section>
+				</div>
 
 				<section class="charm-row cf">
 					<div class="wayward-compass">
@@ -804,7 +834,7 @@ function fillHTML(){
 						</div>
 					</div>
 				</section>
-				<section class="charm-row cf">
+				<section class="charm-row cf charm-offset">
 					<div class="steady-body">
 						<img src="../assets/images/charms/steady-body.png" alt="">
 						<div class="detection" title="Steady Body">
