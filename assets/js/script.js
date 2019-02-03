@@ -15,14 +15,15 @@ function reset(){
 }
 
 //Uncomment below to set values to default on loading the page.
-reset();
+//reset();
 
 //Uncomment below to show charms on loading the page
-//$('.inventory').fadeIn('slow', function(event){});
+$('.inventory').fadeIn('slow', function(event){});
 
 var health = getHealth();
 var nail;
 var nailDamage;
+var onCooldown = false;
 
 var red = "#DB4244";
 var white = "#fff";
@@ -109,7 +110,7 @@ $('.inventory').on('click', function(event){
 });
 
 $('.charm-row > div > div').on('click', function(event){
-	if(!$(this).hasClass("no-hover")){
+	if(!onCooldown && !$(this).hasClass("no-hover")){
 		var html = $(event.target).parent().html();
 		var charm = html.substring(html.indexOf("charms/") + 7, html.indexOf(".png"));
 
@@ -120,7 +121,7 @@ $('.charm-row > div > div').on('click', function(event){
 			if($(event.target).parent().parent().hasClass("active-charms")){
 				$('.' + charm).removeClass("select");
 			}
-			updateCharmInfo($(this).prop("title"));
+			updateCharmInfo("");
 		}else{
 			selectCharm(charm);
 		}
@@ -226,6 +227,18 @@ function toggleSpell(target){
 	}
 }
 
+function getEquippedIndex(charm){
+	var counter = 0;
+	var ret = 0;
+	$('.active-charms > div > img').each(function(moving) {
+		if(this.src.indexOf(charm) != -1){
+			ret = counter;
+		}
+		counter++;
+	});
+	return ret;
+}
+
 //Takes in a charm, and adds it to the equipped charms if space is available.
 function selectCharm(charm) {
 	var notches = parseInt(localStorage.getItem("charm-notches"));
@@ -238,12 +251,95 @@ function selectCharm(charm) {
 		$(event.target).parent().addClass("select");
 		localStorage.setItem("charmlist", localStorage.getItem("charmlist") + charm + ",");
 
+		$('.inventory').append(charmImg(charm));
+		var offset = $(event.target).parent().last().offset();
+		offset.top += 4.75;
+		offset.left += 2.75;
+		$('.inventory > img').offset(offset);
+
 		updateNotches();
+		startTransition(true, 0);
 		updateEquipped();
+
+		var next = getEquippedIndex("next") - 1;
+		if(next < 0){
+			next = getEquippedIndex(charm);
+		}
+
+		endTransition(next, true);
 	}
 }
 
+function startTransition(adding, index){
+	onCooldown = true;
+	var charm;
+	var offset;
+
+	if(adding){
+		$('.next').each(function(next) {
+			offset = $(this).parent().last().offset();
+			offset.top += 4.75;
+			offset.left += 2.75;
+
+			$('.inventory').append(charmImg("next"));
+			$('.inventory > .next').offset(offset);
+			$('.inventory > .next').css("zIndex", 0);
+		});
+	}else{
+		var counter = 0;
+		$('.active-charms > div > img').each(function(moving) {
+			if(counter >= index && this.src.indexOf("blank") == -1){
+				charm = this.src.substring(this.src.indexOf('charms/') + 7, this.src.indexOf('.png'));
+				offset = $(this).parent().last().offset();
+				offset.top += 4.75;
+				offset.left += 2.75;
+
+				$('.inventory').append(charmImg(charm));
+				$('.inventory > .' + charm).offset(offset);
+			}
+			counter++;
+		});
+	}
+}
+
+function endTransition(first, hideNext){
+	moveImages();
+
+	var counter = 0;
+	$('.active-charms > div > img').each(function(moving) {
+		if(counter >= first && !(!hideNext && this.src.indexOf("next") != -1)){
+			$(this).hide();
+			$(this).parent().removeClass("hover");
+			$('active-charms .detection').hide();
+		}
+		counter++;
+	});
+
+	setTimeout(function(){
+		$('.moving-img').remove();
+
+		$('.active-charms > div > img').show();
+		$('.detection').show();
+
+		setTimeout(function(){
+			$('.detection:hover:not(.no-hover)').parent().addClass("hover");
+
+			$('.detection:hover:not(.no-hover)').each(function(hover){
+				updateCharmInfo($(this).prop("title"));
+			});
+		}, 50);
+
+		onCooldown = false;
+	}, 400);
+}
+
+function charmImg(charm){
+	return '<img class="moving-img ' + charm + '" src="../assets/images/charms/' + charm + '.png" alt="">';
+}
+
 function removeCharm(charm){
+	var hide = localStorage.getItem("charm-notches") < 11;
+
 	localStorage.setItem("charmlist", localStorage.getItem("charmlist").replace(charm + ",", ""));
 
 	if(localStorage.getItem("charmlist") != ""){
@@ -252,9 +348,12 @@ function removeCharm(charm){
 		localStorage.setItem("charm-notches", 0);
 	}
 
+	var index = getEquippedIndex(charm);
 
 	updateNotches();
+	startTransition(false, index + 1);
 	updateEquipped();
+	endTransition(index, hide);
 }
 
 function getNotches(charm){
@@ -584,6 +683,11 @@ function equipCharm(charm, location, canHover){
 	img = img.substring(0, img.indexOf('charms/') + 7) + charm + img.substring(img.indexOf('.png'), img.length);
 
 	$(row + ' > img').attr('src', img);
+	if(charm == "next"){
+		$(row + ' > img').addClass("next");
+	}else{
+		$(row + ' > img').removeClass("next");
+	}
 
 	if(canHover){
 		$(row + ' > div').removeClass("no-hover");
@@ -651,6 +755,23 @@ function extraHit(damage){
 	}
 
 	return false;
+}
+
+function moveImages(){
+	var charm;
+	var offset;
+	$('.moving-img').each(function(moving) {
+		charm = this.className.substring(11, this.className.length);
+		$('.active-charms > div > img').each(function(img) {
+			if(this.src.indexOf(charm) != -1 ){
+				offset = $(this).parent().last().offset();
+				offset.top += 4.75;
+				offset.left += 2.75;
+			}
+		});
+		var target = ".moving-img." + charm;
+		$(target).offset(offset);
+	});
 }
 
 function fillHTML(){

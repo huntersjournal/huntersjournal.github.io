@@ -570,7 +570,8 @@ div.hover::before {
 	max-width: 80px;
 }
 
-.charm-row img {
+.charm-row img,
+.moving-img {
 	height: 75px;
 }
 
@@ -751,6 +752,16 @@ div.hover::before {
 	margin-left: 50px;
 	margin-right: 50px;
 }
+
+/* MOVING IMAGES */
+
+.moving-img {
+	position: absolute;
+	transition: 0.4s;
+	z-index: 1;
+}
+
+.newClass{visibility: hidden}
 
 /* BODY */
 
