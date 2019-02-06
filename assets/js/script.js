@@ -18,7 +18,7 @@ function reset(){
 //reset();
 
 //Uncomment below to show charms on loading the page
-$('.inventory').fadeIn('slow', function(event){});
+//$('.inventory').fadeIn('slow', function(event){});
 
 var health = getHealth();
 var nail;
@@ -75,6 +75,138 @@ var charms = [
 	{id:"carefree-melody", name:"Carefree Melody", notches:3, info:"Token commemorating the start of a friendship.<br /><br />Contains a song of protection that may defend the bearer from damage.	"},
 	{id:"grimmchild", name:"Grimmchild", notches:2, info:"Symbol of a completed ritual.<br /><br />Contains a living, scarlet flame."}
 ];
+
+var creatures = [
+	{id:"crawlid", name:"Crawlid", isBoss:false},
+	{id:"vengefly", name:"Vengefly", isBoss:false},
+	{id:"gruzzer", name:"Gruzzer", isBoss:false},
+	{id:"tiktik", name:"TikTik", isBoss:false},
+	{id:"aspid-hunter", name:"Aspid Hunter", isBoss:false},
+	{id:"aspid-mother", name:"Aspid Mother", isBoss:false},
+	{id:"aspid-hatchling", name:"Aspid Hatchling", isBoss:false},
+	{id:"goam", name:"Goam", isBoss:false},
+	{id:"wandering-husk", name:"Wandering Husk", isBoss:false},
+	{id:"husk-hornhead", name:"Husk Hornhead", isBoss:false},
+	{id:"leaping-husk", name:"Leaping Husk", isBoss:false},
+	{id:"husk-bully", name:"Husk Bully", isBoss:false},
+	{id:"husk-warrior", name:"Husk Warrior", isBoss:false},
+	{id:"husk-guard", name:"Husk Guard", isBoss:false},
+	{id:"endombed-husk", name:"Entombed Husk", isBoss:false},
+	{id:"maggot", name:"Maggot", isBoss:false},
+	{id:"lifeseed", name:"Lifeseed", isBoss:false},
+	{id:"baldur", name:"Baldur", isBoss:false},
+	{id:"elder-baldur", name:"Elder Baldur", isBoss:false},
+	{id:"mosscreep", name:"Mosscreep", isBoss:false},
+	{id:"mossfly", name:"Mossfly", isBoss:false},
+	{id:"mosskin", name:"Mosskin", isBoss:false},
+	{id:"volatile-mosskin", name:"Volatile Mosskin", isBoss:false},
+	{id:"fool-eater", name:"Fool Eater", isBoss:false},
+	{id:"squit", name:"Squit", isBoss:false},
+	{id:"obble", name:"Obble", isBoss:false},
+	{id:"gulka", name:"Gulka", isBoss:false},
+	{id:"maskfly", name:"Maskfly", isBoss:false},
+	{id:"moss-charger", name:"Moss Charger", isBoss:false},
+	{id:"moss-knight", name:"Moss Knight", isBoss:false},
+	{id:"moddy-vagabond", name:"Mossy Vagabond", isBoss:false},
+	{id:"durandoo", name:"Durandoo", isBoss:false},
+	{id:"duranda", name:"Duranda", isBoss:false},
+	{id:"aluba", name:"Aluba", isBoss:false},
+	{id:"charged-lumafly", name:"Charged Lumafly", isBoss:false},
+	{id:"uoma", name:"Uoma", isBoss:false},
+	{id:"ooma", name:"Ooma", isBoss:false},
+	{id:"ambloom", name:"Ambloom", isBoss:false},
+	{id:"fungling", name:"Fungling", isBoss:false},
+	{id:"fungoon", name:"Fungoon", isBoss:false},
+	{id:"sporg", name:"Sporg", isBoss:false},
+	{id:"fungified-husk", name:"Fungified Husk", isBoss:false},
+	{id:"shrumeling", name:"Shrumeling", isBoss:false},
+	{id:"shrumal-warrior", name:"Shrumal Warrior", isBoss:false},
+	{id:"shrumal-ogre", name:"Shrumal Ogre", isBoss:false},
+	{id:"mantis-youth", name:"Mantis Youth", isBoss:false},
+	{id:"mantis-warrior", name:"Mantis Warrior", isBoss:false},
+	{id:"husk-sentry", name:"Husk Sentry", isBoss:false},
+	{id:"heavy-sentry", name:"Heavy Sentry", isBoss:false},
+	{id:"winged-sentry", name:"Winged Sentry", isBoss:false},
+	{id:"lance-sentry", name:"Lance Sentry", isBoss:false},
+	{id:"mistake", name:"Mistake", isBoss:false},
+	{id:"folly", name:"Folly", isBoss:false},
+	{id:"soul-twister", name:"Soul Twister", isBoss:false},
+	{id:"husk-dandy", name:"Husk Dandy", isBoss:false},
+	{id:"cowardly-husk", name:"Cowardly Husk", isBoss:false},
+	{id:"gluttonous-husk", name:"Gluttonous Husk", isBoss:false},
+	{id:"gorgeous-husk", name:"Gorgeous Husk", isBoss:false},
+	{id:"great-husk", name:"Great Husk", isBoss:false},
+	{id:"belfly", name:"Belfly", isBoss:false},
+	{id:"pilflip", name:"Pilflip", isBoss:false},
+	{id:"hwurmp", name:"Hwurmp", isBoss:false},
+	{id:"flukefey", name:"Flukefey", isBoss:false},
+	{id:"flukemon", name:"Flukemon", isBoss:false},
+	{id:"flukemunga", name:"Flukemunga", isBoss:false},
+	{id:"shardmite", name:"Shardmite", isBoss:false},
+	{id:"glimback", name:"Glimback", isBoss:false},
+	{id:"crystal-hunter", name:"Crystal Hunter", isBoss:false},
+	{id:"crystal-crawler", name:"Crystal Crawler", isBoss:false},
+	{id:"husk-miner", name:"Husk Miner", isBoss:false},
+	{id:"crystallised-husk", name:"Crystallised Husk", isBoss:false},
+	{id:"furious-vengefly", name:"Furious Vengefly", isBoss:false},
+	{id:"volative-gruzzer", name:"Volatile Gruzzer", isBoss:false},
+	{id:"violent-husk", name:"Violent Husk", isBoss:false},
+	{id:"slobbering-husk", name:"Slobbering Husk", isBoss:false},
+	{id:"dirtcarver", name:"Dirtcarver", isBoss:false},
+	{id:"carver-hatcher", name:"Carver Hatcher", isBoss:false},
+	{id:"garpede", name:"Garpede", isBoss:false},
+	{id:"corpse-creeper", name:"Corspe Creeper", isBoss:false},
+	{id:"deepling", name:"Deepling", isBoss:false},
+	{id:"deephunter", name:"Deephunter", isBoss:false},
+	{id:"little-weaver", name:"Little Weaver", isBoss:false},
+	{id:"stalking-devout", name:"Stalking Devout", isBoss:false},
+	{id:"shadow-creeper", name:"Shadow Creeper", isBoss:false},
+	{id:"lesser-mawlek", name:"Lesser Mawlek", isBoss:false},
+	{id:"mawlurk", name:"Mawlurk", isBoss:false},
+	{id:"lightseed", name:"Lightseed", isBoss:false},
+	{id:"infected-balloon", name:"Infected Balloon", isBoss:false},
+	{id:"boofly", name:"Boofly", isBoss:false},
+	{id:"primal-aspid", name:"Primal Aspid", isBoss:false},
+	{id:"hopper", name:"Hopper", isBoss:false},
+	{id:"great-hopper", name:"Great Hopper", isBoss:false},
+	{id:"grub-mimic", name:"Grub Mimic", isBoss:false},
+	{id:"hiveling", name:"Hiveling", isBoss:false},
+	{id:"hive-soldier", name:"Hive Soldier", isBoss:false},
+	{id:"hive-guardian", name:"Hive Guardian", isBoss:false},
+	{id:"husk-hive", name:"Husk Hive", isBoss:false},
+	{id:"spiny-husk", name:"Spiny Husk", isBoss:false},
+	{id:"loodle", name:"Loodle", isBoss:false},
+	{id:"mantis-petra", name:"Mantis Petra", isBoss:false},
+	{id:"mantis-traitor", name:"Mantis Traitor", isBoss:false},
+	{id:"sharp-baldur", name:"Sharp Baldur", isBoss:false},
+	{id:"armoured-squit", name:"Armoured Squit", isBoss:false},
+	{id:"battle-obble", name:"Battle Obble", isBoss:false},
+	{id:"shielded-fool", name:"Shielded Fool", isBoss:false},
+	{id:"sturdy-fool", name:"Sturdy Fool", isBoss:false},
+	{id:"winged-fool", name:"Winged Fool", isBoss:false},
+	{id:"heavy-fool", name:"Heavy Fool", isBoss:false},
+	{id:"death-loodle", name:"Death Loodle", isBoss:false},
+	{id:"volt-twister", name:"Volt Twister", isBoss:false},
+	{id:"pale-lurker", name:"Pale Lurker", isBoss:false},
+	{id:"zote", name:"Zote", isBoss:false},
+	{id:"winged-zote", name:"Winged Zote", isBoss:false},
+	{id:"hopping-zote", name:"Hopping Zote", isBoss:false},
+	{id:"heavy-zote", name:"Heavy Zote", isBoss:false},
+	{id:"spitting-zote", name:"Spitting Zote", isBoss:false},
+	{id:"lanky-zote", name:"Lanky Zote", isBoss:false},
+	{id:"head-of-zote", name:"Head of Zote", isBoss:false},
+	{id:"volatile-zote", name:"Volatile Zote", isBoss:false},
+	{id:"fluke-zote", name:"Fluke Zote", isBoss:false},
+	{id:"zotes-curse", name:"Zote's Curse", isBoss:false},
+	{id:"grimmkin-novice", name:"Grimmkin Novice", isBoss:false},
+	{id:"grimmkin-master", name:"Grimmkin Master", isBoss:false},
+	{id:"grimmking-knightmare", name:"Grimmkin Nightmare", isBoss:false},
+	{id:"wingmould", name:"Wingmould", isBoss:false},
+	{id:"royal-retainer", name:"Royal Retainer", isBoss:false},
+	{id:"kingsmould", name:"Kingsmould", isBoss:false},
+	{id:"sibling", name:"Sibling", isBoss:false},
+	{id:"shade", name:"Shade", isBoss:false}
+]
 
 setup();
 
@@ -420,6 +552,32 @@ function setChevron(gray, target){
 	$(target).html(str);
 }
 
+function getCreature(creature){
+	var ret = "";
+	creatures.forEach(function(crit) {
+		if(crit.id == creature){
+			ret = crit;
+		}
+	});
+	return ret;
+}
+
+function updateMap(creature){
+	var crit = getCreature(creature);
+	var path = "assets/images/";
+
+	if(crit.isBoss){
+		path += "boss-locations";
+	}else{
+		path += "enemy-locations";
+	}
+	path += "/" + creature + ".png";
+
+	$('.map').attr("src", path);
+
+	$('.img-display').html(crit.name + " Locations");
+}
+
 function getHealth(){
 	var str = $('.health').text();
 	str = str.substring(8, str.length);
@@ -428,14 +586,21 @@ function getHealth(){
 }
 
 function setup(){
-	fillHTML();
+	var url = window.location.href;
+	if(url.indexOf("creature") != -1){
+		var creature = url.substring(url.indexOf("creature") + 9, url.length);
 
-	updateDamage();
-	highlightNail();
-	correctSpells();
-	highlightCharms();
-	updateNotches();
-	updateEquipped();
+		updateMap(creature);
+	}else{
+		fillHTML();
+
+		updateDamage();
+		highlightNail();
+		correctSpells();
+		highlightCharms();
+		updateNotches();
+		updateEquipped();
+	}
 }
 
 function updateDamage() {
