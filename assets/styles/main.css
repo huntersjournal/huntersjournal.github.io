@@ -418,7 +418,9 @@ footer a {
 }
 
 .map {
+	height: 100vh;
 	margin: auto;
+	display: grid;
 }
 
 .bullet {

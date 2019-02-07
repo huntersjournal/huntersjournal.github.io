@@ -572,7 +572,7 @@ function updateMap(creature){
 		path += "enemy-locations";
 	}
 	path += "/" + creature + ".png";
-
+	
 	$('.map').attr("src", path);
 
 	$('.img-display').html(crit.name + " Locations");
