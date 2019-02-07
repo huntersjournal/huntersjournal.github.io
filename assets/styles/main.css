@@ -57,7 +57,7 @@ h1, h2, h3, h4, h5, h6{
 	color: #fff;
 }
 
-p, li {
+p, li, a {
 	font: 300 16px/24px "Noto Serif", Times, serif;
 	color: #fff;
 }
@@ -79,12 +79,15 @@ p, li {
 	padding-bottom: 15px; /* padding - distance bottom row moved up */
 	border-radius: 25px;
 
+	/* TEMPORARY */
+	min-width: 1222px;
+}
+
+.centered,
+.map img {
 	-webkit-box-shadow:0 0 20px #fff;
 	-moz-box-shadow: 0 0 20px #fff;
 	box-shadow:0 0 20px #fff;
-
-	/* TEMPORARY */
-	min-width: 1222px;
 }
 
 .container {
@@ -384,6 +387,7 @@ footer a {
 }
 
 .mob-desc,
+.show-map,
 .mob-info {
 	border: 2px solid #fff;
 	border-radius: 10px;
@@ -393,23 +397,30 @@ footer a {
 	background: #222;
 }
 
-.mob-content {
-	margin-right: 554px; /* below width + above padding */
-}
-
-.locations {
+.show-map {
 	margin-top: 20px;
-	border: 2px solid #fff;
-	border-radius: 10px;
-	width: 100%;
-}
-
-.locations:hover {
+	display: block;
+	padding-top: 0;
 	transition: 0.1s;
 
+	background-image: url("../images/backgrounds/map-background.png");
+	background-position: center;
+	background-size: cover;
+
+}
+
+.show-map:hover {
 	-webkit-box-shadow:0 0 20px #fff;
 	-moz-box-shadow: 0 0 20px #fff;
 	box-shadow:0 0 20px #fff;
+}
+
+.show-map p {
+	margin-bottom: 5px;
+}
+
+.mob-content {
+	margin-right: 554px; /* below width + above padding */
 }
 
 .location-background {
@@ -417,16 +428,18 @@ footer a {
 	justify-content: center;
 }
 
-.map {
-	height: 100vh;
-	margin: auto;
-	display: grid;
-}
-
 .bullet {
 	height: 18px;
 	vertical-align: middle;
 	padding-right: 5px;
+}
+
+.mob-desc a {
+	text-decoration: underline;
+}
+
+.mob-desc a:hover {
+	color: #DDD;
 }
 
 .mob-info {
@@ -812,7 +825,7 @@ body {
 
 /* INVENTORY */
 
-.inventory {
+.overlay {
 	display: none;
 	z-index: 100;
 	position: fixed;
@@ -820,6 +833,21 @@ body {
 	height: 100%;
 
 	background: rgba(200,200,200,.5);
+}
+
+.map div {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.map img {
+	display: block;
+	margin: auto;
+	width: 900px;
+	height: 600px;
+	border-radius: 15px;
 }
 
 /* BACKGROUNDS */
