@@ -12,7 +12,8 @@
 
 	<body class="flex-wrapper"> <!-- Pushes footer down to bottom of page. -->
 
-		<section class="inventory"></section>
+		<section class="overlay inventory"></section>
+		<section class="overlay map"><div><img class="zoom" src="../assets/images/enemy-locations/crawlid.png" alt=""></div></section>
 
 		<header>
 			<section class="cf container header-top">
@@ -75,7 +76,7 @@
 								</div>
 								<ul>
 									<li><img src="../assets/images/general/bullet-point.png" class="bullet" alt="">Crawlids will walk along the ground at a constant speed, turning around when they encounter a ledge or wall.</li>
-									<li><img src="../assets/images/general/bullet-point.png" class="bullet" alt="">Unlike the <a href="tiktik.html">TikTik</a>, they do experience knockback, but will not stop when hit.</li>
+									<li><img src="../assets/images/general/bullet-point.png" class="bullet" alt="">Unlike the <a href="tiktik.html">TikTik</a>, they experience knockback, but will not stop when hit.</li>
 								</ul>
 							</div>
 
@@ -86,14 +87,31 @@
 									<img src="../assets/images/general/fleur-right.png" alt="">
 								</div>
 								<ul>
-									<li><img src="../assets/images/general/bullet-point.png" class="bullet" alt="">Because of their simple movement, Crawlids are good targets for nail-jumping, though simple attacks work just as well.</li>
-									<li><img src="../assets/images/general/bullet-point.png" class="bullet" alt="">Their low health makes spells and nail arts overkill. Any nail other than the Old Nail will kill a Crawlid in a single hit.</li>
+									<li><img src="../assets/images/general/bullet-point.png" class="bullet" alt="">Because of their simple movement, Crawlids are good targets for nail-jumping, though simple frontal attacks work just as well.</li>
+									<li><img src="../assets/images/general/bullet-point.png" class="bullet" alt="">Their low health makes spells and nail arts overkill. Any upgraded nail will kill a Crawlid in a single hit.</li>
 								</ul>
 							</div>
 						</section>
-						<a href="../map.html?creature=crawlid" target="_blank" title="Crawlid Locations">
-							<img class="locations" src="../assets/images/enemy-locations/crawlid.png" alt="">
+
+						<a class="show-map" title="Crawlid Locations">
+							<div>
+								<div class="subtitle">
+									<img src="../assets/images/general/fleur-left.png" alt="">
+									<h2>Locations</h2>
+									<img src="../assets/images/general/fleur-right.png" alt="">
+								</div>
+								<p>Crawlids can be found the following areas:</p>
+								<ul>
+									<li><img src="../assets/images/general/bullet-point.png" class="bullet" alt="">Howling Cliffs</li>
+									<li><img src="../assets/images/general/bullet-point.png" class="bullet" alt="">Forgotten Crossroads</li>
+									<li><img src="../assets/images/general/bullet-point.png" class="bullet" alt="">Greenpath</li>
+									<li><img src="../assets/images/general/bullet-point.png" class="bullet" alt="">Resting Grounds</li>
+								</ul>
+							</div>
 						</a>
+						<!--<a class="show-map" title="Crawlid Locations">
+							<img class="locations" src="../assets/images/enemy-locations/crawlid.png" alt="">
+						</a>-->
 					</div>
 
 				</div>
@@ -118,5 +136,9 @@
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script> <!-- remove https: for uploading to github! -->
 		<script src="../assets/js/script.js"></script>
+		<script src="../assets/js/wheelzoom.js"></script>
+		<script>
+			wheelzoom(document.querySelector('img.zoom'), {maxZoom: 8});
+		</script>
 	</body>
 </html>

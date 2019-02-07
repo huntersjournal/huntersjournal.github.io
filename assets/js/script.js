@@ -219,6 +219,17 @@ $(document).ready(function() {
 
 // ON CLICK //
 
+$('.show-map').on('click', function(event){
+	$('.map').fadeIn('slow', function(event){});
+});
+
+$('.map').on('click', function(event){
+	var classes = event.target.classList;
+	if(!classes.contains("zoom")){
+		$('.map').fadeOut('slow', function(event){});
+	}
+});
+
 $('.charms').on('click', function(event){
 	$('.inventory').fadeIn('slow', function(event){});
 });
@@ -552,6 +563,7 @@ function setChevron(gray, target){
 	$(target).html(str);
 }
 
+/*
 function getCreature(creature){
 	var ret = "";
 	creatures.forEach(function(crit) {
@@ -561,22 +573,7 @@ function getCreature(creature){
 	});
 	return ret;
 }
-
-function updateMap(creature){
-	var crit = getCreature(creature);
-	var path = "assets/images/";
-
-	if(crit.isBoss){
-		path += "boss-locations";
-	}else{
-		path += "enemy-locations";
-	}
-	path += "/" + creature + ".png";
-	
-	$('.map').attr("src", path);
-
-	$('.img-display').html(crit.name + " Locations");
-}
+*/
 
 function getHealth(){
 	var str = $('.health').text();
@@ -586,21 +583,14 @@ function getHealth(){
 }
 
 function setup(){
-	var url = window.location.href;
-	if(url.indexOf("creature") != -1){
-		var creature = url.substring(url.indexOf("creature") + 9, url.length);
+	fillHTML();
 
-		updateMap(creature);
-	}else{
-		fillHTML();
-
-		updateDamage();
-		highlightNail();
-		correctSpells();
-		highlightCharms();
-		updateNotches();
-		updateEquipped();
-	}
+	updateDamage();
+	highlightNail();
+	correctSpells();
+	highlightCharms();
+	updateNotches();
+	updateEquipped();
 }
 
 function updateDamage() {
