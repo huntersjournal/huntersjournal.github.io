@@ -406,13 +406,14 @@ footer a {
 	background-image: url("../images/backgrounds/map-background.png");
 	background-position: center;
 	background-size: cover;
-
 }
 
 .show-map:hover {
 	-webkit-box-shadow:0 0 20px #fff;
 	-moz-box-shadow: 0 0 20px #fff;
 	box-shadow:0 0 20px #fff;
+
+	cursor: pointer;
 }
 
 .show-map p {
@@ -434,11 +435,11 @@ footer a {
 	padding-right: 5px;
 }
 
-.mob-desc a {
+.mob-content a {
 	text-decoration: underline;
 }
 
-.mob-desc a:hover {
+.mob-content a:hover {
 	color: #DDD;
 }
 

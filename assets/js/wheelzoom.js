@@ -54,6 +54,73 @@ window.wheelzoom = (function(){
 			updateBgStyle();
 		}
 
+		// Custom method for focusing on a certain region of the map.
+		function setFocus(setWidth, setHeight, x, y){
+			console.log("Set!");
+			bgWidth = setWidth;
+			bgHeight = setHeight;
+			bgPosX = x;
+			bgPosY = y;
+			updateBgStyle();
+		}
+
+		// Custom method for accepting the location to focus on
+		function focus(event){
+			switch(event.detail){
+				case "Howling Cliffs":
+					setFocus(4458.497693689421, 2621.864153751001, -835, -237);
+					break;
+				case "Forgotten Crossroads":
+					setFocus(3932.796230626501, 2383.5128670463646, -1409, -450);
+					break;
+				case "Resting Grounds":
+					setFocus(3575.269300569546, 2383.5128670463646, -2057, -481);
+					break;
+				case "Greenpath":
+					setFocus(2606.3713201151986, 1737.5808800767998, -110, -240);
+					break;
+				case "Crystal Peak":
+					setFocus(2867.0084521267186, 1911.3389680844798, -1327, -48);
+					break;
+				case "City of Tears":
+					setFocus(2554.504530844906, 1703.0030205632713, -1158, -626);
+					break;
+				case "Royal Waterways":
+					setFocus(2528.959485536457, 1685.9729903576385, -1060, -800);
+					break;
+				case "Fungal Wastes":
+					setFocus(3029.440567724122, 2019.6270451494152, -777, -737);
+					break;
+				case "Fog Canyon":
+					setFocus(4391.049895852839, 2927.366597235226, -847, -981);
+					break;
+				case "Queen's Gardens":
+					setFocus(3815.988249780663, 2543.992166520443, -256, -924);
+					break;
+				case "Deepnest":
+					setFocus(2186.377552132176, 1457.585034754785, -37, -682);
+					break;
+				case "Ancient Basin":
+					setFocus(2580.3076069140466, 1720.2050712760315, -963, -1016);
+					break;
+				case "The Abyss":
+					setFocus(2580.3076069140466, 1720.2050712760315, -1227, 1120);
+					break;
+				case "Kingdom's Edge":
+					setFocus(2838.3383676054514, 1892.2255784036347, -1878, -801);
+					break;
+				case "The Hive":
+					setFocus(6480, 4320, -4929, -2736);
+					break;
+				default:
+			}
+		}
+
+		// Custom method to get the current position and zoom of the image
+		function getFocus(){
+			console.log("Width: " + bgWidth + "\nHeight: " + bgHeight + "\nxPos: " + bgPosX + "\nyPos: " + bgPosY);
+		}
+
 		function onwheel(e) {
 			var deltaY = 0;
 
@@ -75,7 +142,7 @@ window.wheelzoom = (function(){
 			// Record the offset between the bg edge and cursor:
 			var bgCursorX = offsetX - bgPosX;
 			var bgCursorY = offsetY - bgPosY;
-			
+
 			// Use the previous offset to get the percent offset between the bg edge and cursor:
 			var bgRatioX = bgCursorX/bgWidth;
 			var bgRatioY = bgCursorY/bgHeight;
@@ -147,6 +214,11 @@ window.wheelzoom = (function(){
 			img.style.backgroundPosition = bgPosX+'px '+bgPosY+'px';
 			img.addEventListener('wheelzoom.reset', reset);
 
+			// Added new event listeners to accept an area of the map to focus on.
+			img.addEventListener('focus', focus);
+			img.addEventListener('getFocus', getFocus);
+			// End new listeners
+
 			img.addEventListener('wheel', onwheel);
 			img.addEventListener('mousedown', draggable);
 		}
@@ -159,6 +231,11 @@ window.wheelzoom = (function(){
 			img.removeEventListener('mousemove', drag);
 			img.removeEventListener('mousedown', draggable);
 			img.removeEventListener('wheel', onwheel);
+
+			// Added these removes to match existing ones.
+			img.removeEventListener('focus', focus);
+			img.removeEventListener('getFocus', getFocus);
+			// End new removes
 
 			img.style.backgroundImage = originalProperties.backgroundImage;
 			img.style.backgroundRepeat = originalProperties.backgroundRepeat;

@@ -220,6 +220,7 @@ $(document).ready(function() {
 // ON CLICK //
 
 $('.show-map').on('click', function(event){
+	document.querySelector('img.zoom').dispatchEvent(new CustomEvent('focus', {'detail': event.target.className}));
 	$('.map').fadeIn('slow', function(event){});
 });
 
@@ -227,7 +228,10 @@ $('.map').on('click', function(event){
 	var classes = event.target.classList;
 	if(!classes.contains("zoom")){
 		$('.map').fadeOut('slow', function(event){});
-	}
+	}/*else{
+		// Used to get the current position of the map for setting up direct links to locations
+		document.querySelector('img.zoom').dispatchEvent(new CustomEvent('getFocus'));
+	}*/
 });
 
 $('.charms').on('click', function(event){
@@ -294,7 +298,6 @@ $('.detection').hover(
 		}
 	}
 );
-
 
 $('.current-page').hover(
 	function(){
