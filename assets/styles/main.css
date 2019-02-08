@@ -38,7 +38,7 @@ Text background: #181830
 
 /* SMOOTH IMAGE MOVEMENT */
 
-img, div {
+img, div, home-col {
 	-webkit-backface-visibility: hidden;
 	-webkit-transform: translateZ(0) scale(1.0, 1.0);
 	transform: translateZ(0);
@@ -147,7 +147,7 @@ p, li, a {
 	position: relative;
 
 	margin: 0 10px;
-	padding: 10px 20px;
+	padding: 10px 12px;
 	display: flex;
 	flex-direction: column;
 	text-align: center;
@@ -174,7 +174,7 @@ p, li, a {
 	text-decoration: underline;
 	color: #DDD;
 	font-size: 18px;
-	max-width: 102px;
+	width: 118px;
 }
 
 /* LINKS */
@@ -188,6 +188,20 @@ nav a:focus,
 footer a:hover,
 footer a:focus {
 	color: #DDD;
+}
+
+.home-col {
+	transition: 0.3s;
+	position: relative;
+	top: 0;
+}
+
+.home-col:hover {
+	top: -10px;
+
+	-webkit-box-shadow:0 0 20px #fff;
+	-moz-box-shadow: 0 0 20px #fff;
+	box-shadow:0 0 20px #fff;
 }
 
 .home-col,
@@ -816,12 +830,12 @@ body {
 	position: absolute;
 
 	left: -17px;
-	top: 40px;
+	top: 32px;
 }
 
 .update-marker:hover img:first-of-type,
 .update-marker:focus img:first-of-type {
-	top: 42px;
+	top: 40px;
 }
 
 /* INVENTORY */
