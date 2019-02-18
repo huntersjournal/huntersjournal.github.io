@@ -147,7 +147,7 @@ p, li, a {
 	position: relative;
 
 	margin: 0 10px;
-	padding: 10px 12px;
+	padding: 0 12px;
 	display: flex;
 	flex-direction: column;
 	text-align: center;
@@ -157,6 +157,9 @@ p, li, a {
 }
 
 .row img {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, 0%);
 	margin-top: -50px;
 	transition: 0.3s;
 }
@@ -168,6 +171,7 @@ p, li, a {
 
 .row a p {
 	margin: auto;
+	padding-top: 50px;
 
 	line-height: 20px;
 	text-align: center;
@@ -190,13 +194,14 @@ footer a:focus {
 	color: #DDD;
 }
 
-.home-col {
+.home-col div {
 	transition: 0.3s;
 	position: relative;
 	top: 0;
+	height: 100%;
 }
 
-.home-col:hover {
+.home-col:hover div {
 	top: -10px;
 
 	-webkit-box-shadow:0 0 20px #fff;
@@ -204,15 +209,15 @@ footer a:focus {
 	box-shadow:0 0 20px #fff;
 }
 
-.home-col,
+.home-col div,
 .row a {
 	border: 2px solid #DDD;
 	background: #181830;
 	border-radius: 10px;
 }
 
-.home-col:hover,
-.home-col:focus,
+.home-col:hover div,
+.home-col:focus div,
 .row a:hover,
 .row a:focus {
 	border-color: #ffffff;
@@ -282,8 +287,12 @@ nav img {
 
 .home-col p,
 .home-col h5 {
-	margin: 10px 20px 10px 20px;
+	margin: 10px 20px;
 	color: #DDD;
+}
+
+.home-col p {
+	margin-bottom: 15px;
 }
 
 .home-col img {
@@ -829,7 +838,7 @@ body {
 .update-marker img:first-of-type {
 	position: absolute;
 
-	left: -17px;
+	left: 0;
 	top: 32px;
 }
 
