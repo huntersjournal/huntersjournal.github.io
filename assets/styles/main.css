@@ -334,6 +334,10 @@ header {
 	margin-right: auto;
 }
 
+.title h1 {
+	margin-left: 20px;
+}
+
 .subtitle {
 	padding: 18px 0;
 	display: flex;
