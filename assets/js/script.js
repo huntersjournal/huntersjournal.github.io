@@ -601,7 +601,6 @@ function updateDamage() {
 	updateFireball();
 	updateDive();
 	updateScream();
-	//NEED TO CONSIDER SHAMAN STONE!!!!!
 }
 
 function updateScream() {
@@ -726,12 +725,16 @@ function updateNail() {
 	}
 
 	//Calculate base nail damage
-	nailDamage = damage;
+	greatSlashDamage = damage;
 	if(hasCharm("unbreakable-strength")){
 		damage *= 1.5;
 	}
 	if(hasCharm("fury-of-the-fallen")){
 		damage *= 1.75;
+
+		if(hasCharm("nailmasters-glory")){
+			greatSlashDamage *= 1.75;
+		}
 
 		$('.col-1-5').css("border-color", red);
 		$('.col-1-5').css("color", red);
@@ -740,15 +743,20 @@ function updateNail() {
 		$('.col-1-5').css("color", white);
 	}
 
+	damage = Math.ceil(damage);
+
+	//Used for determining if an enemy can be finished off with an extra hit.
+	nailDamage = damage;
+
 	//Set nail image
 	var txt = '<img src="../assets/images/gear/' + nail + '-tilt.png" alt=""> x ' + Math.ceil(health / damage);
 	$('.nail').html(txt);
 
 	//Calculate great slash damage
-	damage *= 2.5;
-	damage = Math.ceil(damage);
+	greatSlashDamage *= 2.5;
+	greatSlashDamage = Math.ceil(greatSlashDamage);
 
-	$('.nail-art').html(setUpTxt("great-slash", damage));
+	$('.nail-art').html(setUpTxt("great-slash", greatSlashDamage));
 }
 
 function updateEquipped(){
