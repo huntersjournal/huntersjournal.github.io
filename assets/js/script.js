@@ -608,8 +608,10 @@ function updateScream() {
 
 	if(localStorage.getItem("scream") == "howling-wraiths"){
 		damage = 30;
+		$('.scream').prop('title', "Howling Wraiths Hits");
 	}else{
 		damage = 80;
+		$('.scream').prop('title', "Abyss Shriek Hits");
 	}
 
 	if(hasCharm("shaman-stone")){
@@ -628,12 +630,14 @@ function updateDive() {
 		}else{
 			damage = 35;
 		}
+		$('.dive').prop('title', "Desolate Dive Hits");
 	}else{
 		if(hasCharm("shaman-stone")){
 			damage = 88;
 		}else{
 			damage = 60;
 		}
+		$('.dive').prop('title', "Descending Dark Hits");
 	}
 
 	$('.dive').html(setUpTxt(localStorage.getItem("dive"), damage));
@@ -646,8 +650,10 @@ function updateFireball() {
 	var str = "";
 	if(localStorage.getItem("fireball") == "shade-soul"){
 		str = "shade";
+		$('.fireball').prop('title', "Shade Soul Hits");
 	}else{
 		str = "vengeful";
+		$('.fireball').prop('title', "Vengeful Spirit Hits");
 	}
 	if(hasCharm("shaman-stone")){
 		str += "-shaman";
@@ -707,18 +713,23 @@ function updateNail() {
 	switch(nail){
 		case "old-nail":
 			damage = 5;
+			$('.nail').prop('title', "Old Nail Hits");
 			break;
 		case "sharpened-nail":
 			damage = 9;
+			$('.nail').prop('title', "Sharpened Nail Hits");
 			break;
 		case "channelled-nail":
 			damage = 13;
+			$('.nail').prop('title', "Channelled Nail Hits");
 			break;
 		case "coiled-nail":
 			damage = 17;
+			$('.nail').prop('title', "Coiled Nail Hits");
 			break;
 		case "pure-nail":
 			damage = 21;
+			$('.nail').prop('title', "Pure Nail Hits");
 			break;
 		default:
 			damage = 0;

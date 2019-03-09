@@ -52,7 +52,7 @@ img, div, home-col {
 
 /* FONTS */
 
-h1, h2, h3, h4, h5, h6{
+h1, h2, h3, h4, h5, h6 {
 	font: 300 30px/40px "Noto Serif", Times, serif;
 	color: #fff;
 }
@@ -477,6 +477,19 @@ footer a {
 	margin-left: 20px;
 }
 
+.stats {
+	padding: 0 25px;
+	padding-bottom: 15px;
+	cursor: default;
+}
+
+.mob-info .col-1-3 img {
+	height: 40px;
+	margin-right: 5px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
 .mob-img-frame {
 	height: 500px;
 	width: 500px;
@@ -507,6 +520,13 @@ footer a {
 	max-width: 18px;
 	display: inline-block;
 	vertical-align: middle;
+}
+
+.health, .geo, .journal {
+	font: 300 30px/40px "Noto Serif", Times, serif;
+	color: #fff;
+	text-align: center;
+	font-size: 18px;
 }
 
 h3 {
@@ -555,7 +575,7 @@ h3 {
 	transition: 0.5s;
 	opacity: 0;
 
-	background-image: radial-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0) 72%);
+	background-image: radial-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0) 72%);
 }
 
 div.select::before,
