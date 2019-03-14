@@ -528,10 +528,9 @@ footer a {
 }
 
 .health, .geo, .journal, .stats p {
-	font: 300 30px/40px "Noto Serif", Times, serif;
+	font: 300 20px/25px "Noto Serif", Times, serif;
 	color: #fff;
 	text-align: center;
-	font-size: 20px;
 }
 
 h3 {
