@@ -58,7 +58,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p, li, a {
-	font: 300 16px/24px "Noto Serif", Times, serif;
+	font: 300 18px/24px "Noto Serif", Times, serif;
 	color: #fff;
 }
 
@@ -515,6 +515,11 @@ footer a {
 	margin: 0 10px;
 }
 
+.stats p {
+	display: inline-block;
+	margin: 0;
+}
+
 .required-dmg img {
 	max-height: 18px;
 	max-width: 18px;
@@ -522,11 +527,11 @@ footer a {
 	vertical-align: middle;
 }
 
-.health, .geo, .journal {
+.health, .geo, .journal, .stats p {
 	font: 300 30px/40px "Noto Serif", Times, serif;
 	color: #fff;
 	text-align: center;
-	font-size: 18px;
+	font-size: 20px;
 }
 
 h3 {

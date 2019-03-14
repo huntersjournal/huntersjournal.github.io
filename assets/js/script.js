@@ -273,6 +273,7 @@ $('.charm-row > div > div').on('click', function(event){
 			selectCharm(charm);
 		}
 
+		updateGeo();
 		updateDamage();
 	}
 });
@@ -594,6 +595,7 @@ function setup(){
 	highlightCharms();
 	updateNotches();
 	updateEquipped();
+	updateGeo();
 }
 
 function updateDamage() {
@@ -601,6 +603,16 @@ function updateDamage() {
 	updateFireball();
 	updateDive();
 	updateScream();
+}
+
+function updateGeo() {
+	if(hasCharm("unbreakable-greed")){
+		$('.geo p:first-of-type').hide();
+		$('.geo p:last-of-type').show();
+	}else{
+		$('.geo p:first-of-type').show();
+		$('.geo p:last-of-type').hide();
+	}
 }
 
 function updateScream() {
