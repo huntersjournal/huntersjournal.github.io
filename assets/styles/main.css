@@ -458,6 +458,9 @@ footer a {
 
 .bullet {
 	height: 18px;
+	/* Specified width to prevent text from moving on hover over */
+	width: 29.75px;
+	
 	vertical-align: middle;
 	padding-right: 5px;
 }

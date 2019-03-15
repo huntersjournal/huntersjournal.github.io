@@ -303,14 +303,25 @@ $('.detection').hover(
 $('.current-page').hover(
 	function(){
 		if(!grayChevron){
-			setChevron(true, this);
+			setImageColor(true, this, "chevron");
 			grayChevron = true;
 		}
 	}, function(){
 		if(grayChevron){
-			setChevron(false, this);
+			setImageColor(false, this, "chevron");
 			grayChevron = false;
 		}
+	}
+);
+
+$('.show-map li a').hover(
+	//Runs on hover over
+	function(){
+		setImageColor(true, this, "bullet-point");
+	},
+	//Runs on hover out
+	function(){
+		setImageColor(false, this, "bullet-point");
 	}
 );
 
@@ -555,11 +566,11 @@ function correctSpells(){
 	}
 }
 
-function setChevron(gray, target){
+function setImageColor(gray, target, word){
 	var str = $(target).html();
 
 	if(gray){
-		str = str.replace("chevron", "chevron-gray");
+		str = str.replace(word, word + "-gray");
 	}else{
 		str = str.replace("-gray", "");
 	}
