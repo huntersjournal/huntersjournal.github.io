@@ -317,11 +317,15 @@ $('.current-page').hover(
 $('.show-map li a').hover(
 	//Runs on hover over
 	function(){
-		setImageColor(true, this, "bullet-point");
+		var str = $(this).html();
+		str = str.substring(0, str.indexOf("point")) + "point-gray" + str.substring(str.indexOf(".png"), str.length);
+		$(this).html(str);
 	},
 	//Runs on hover out
 	function(){
-		setImageColor(false, this, "bullet-point");
+		var str = $(this).html();
+		str = str.substring(0, str.indexOf("point")) + "point" + str.substring(str.indexOf(".png"), str.length);
+		$(this).html(str);
 	}
 );
 
