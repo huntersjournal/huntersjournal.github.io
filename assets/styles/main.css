@@ -491,12 +491,12 @@ footer a {
 	cursor: default;
 }
 
-.mob-info .col-1-3 {
+.stats .col-1-3 {
 	height: 40px;
 	line-height: 40px;
 }
 
-.mob-info .col-1-3 img {
+.stats .col-1-3 img {
 	height: 40px;
 	margin-right: 5px;
 	display: inline-block;
